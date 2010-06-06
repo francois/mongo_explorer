@@ -11,6 +11,10 @@
 		0FC7B98711BC190C00ADE4BE /* DatabaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC7B98611BC190C00ADE4BE /* DatabaseController.m */; };
 		0FC7B9B511BC1B2100ADE4BE /* Database.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC7B9B411BC1B2100ADE4BE /* Database.xib */; };
 		0FC7B9B711BC1B2800ADE4BE /* Connection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC7B9B611BC1B2800ADE4BE /* Connection.xib */; };
+		0FC7BA3E11BC2CA000ADE4BE /* bson.c in Sources */ = {isa = PBXBuildFile; fileRef = 0FC7BA3511BC2CA000ADE4BE /* bson.c */; };
+		0FC7BA3F11BC2CA000ADE4BE /* md5.c in Sources */ = {isa = PBXBuildFile; fileRef = 0FC7BA3711BC2CA000ADE4BE /* md5.c */; };
+		0FC7BA4011BC2CA000ADE4BE /* mongo.c in Sources */ = {isa = PBXBuildFile; fileRef = 0FC7BA3911BC2CA000ADE4BE /* mongo.c */; };
+		0FC7BA4111BC2CA000ADE4BE /* numbers.c in Sources */ = {isa = PBXBuildFile; fileRef = 0FC7BA3C11BC2CA000ADE4BE /* numbers.c */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* Mongo_ExplorerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* Mongo_ExplorerAppDelegate.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -26,6 +30,15 @@
 		0FC7B8A911BB493500ADE4BE /* NewConnectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewConnectionController.m; sourceTree = "<group>"; };
 		0FC7B98511BC190C00ADE4BE /* DatabaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseController.h; sourceTree = "<group>"; };
 		0FC7B98611BC190C00ADE4BE /* DatabaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseController.m; sourceTree = "<group>"; };
+		0FC7BA3511BC2CA000ADE4BE /* bson.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bson.c; sourceTree = "<group>"; };
+		0FC7BA3611BC2CA000ADE4BE /* bson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bson.h; sourceTree = "<group>"; };
+		0FC7BA3711BC2CA000ADE4BE /* md5.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = md5.c; sourceTree = "<group>"; };
+		0FC7BA3811BC2CA000ADE4BE /* md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md5.h; sourceTree = "<group>"; };
+		0FC7BA3911BC2CA000ADE4BE /* mongo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mongo.c; sourceTree = "<group>"; };
+		0FC7BA3A11BC2CA000ADE4BE /* mongo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mongo.h; sourceTree = "<group>"; };
+		0FC7BA3B11BC2CA000ADE4BE /* mongo_except.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mongo_except.h; sourceTree = "<group>"; };
+		0FC7BA3C11BC2CA000ADE4BE /* numbers.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = numbers.c; sourceTree = "<group>"; };
+		0FC7BA3D11BC2CA000ADE4BE /* platform_hacks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = platform_hacks.h; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -64,6 +77,22 @@
 			name = Classes;
 			sourceTree = "<group>";
 		};
+		0FC7BA3411BC2CA000ADE4BE /* Mongo */ = {
+			isa = PBXGroup;
+			children = (
+				0FC7BA3511BC2CA000ADE4BE /* bson.c */,
+				0FC7BA3611BC2CA000ADE4BE /* bson.h */,
+				0FC7BA3711BC2CA000ADE4BE /* md5.c */,
+				0FC7BA3811BC2CA000ADE4BE /* md5.h */,
+				0FC7BA3911BC2CA000ADE4BE /* mongo.c */,
+				0FC7BA3A11BC2CA000ADE4BE /* mongo.h */,
+				0FC7BA3B11BC2CA000ADE4BE /* mongo_except.h */,
+				0FC7BA3C11BC2CA000ADE4BE /* numbers.c */,
+				0FC7BA3D11BC2CA000ADE4BE /* platform_hacks.h */,
+			);
+			path = Mongo;
+			sourceTree = "<group>";
+		};
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +122,7 @@
 		29B97314FDCFA39411CA2CEA /* Mongo Explorer */ = {
 			isa = PBXGroup;
 			children = (
+				0FC7BA3411BC2CA000ADE4BE /* Mongo */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -193,6 +223,10 @@
 				256AC3DA0F4B6AC300CF3369 /* Mongo_ExplorerAppDelegate.m in Sources */,
 				0FC7B8AA11BB493500ADE4BE /* NewConnectionController.m in Sources */,
 				0FC7B98711BC190C00ADE4BE /* DatabaseController.m in Sources */,
+				0FC7BA3E11BC2CA000ADE4BE /* bson.c in Sources */,
+				0FC7BA3F11BC2CA000ADE4BE /* md5.c in Sources */,
+				0FC7BA4011BC2CA000ADE4BE /* mongo.c in Sources */,
+				0FC7BA4111BC2CA000ADE4BE /* numbers.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

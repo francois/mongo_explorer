@@ -24,8 +24,8 @@ NSString *MEConnectionRequest = @"ConnectionRequest";
 }
 
 -(void)resetFields {
-  [[self host] setStringValue:@""];
-  [[self port] setStringValue:@""];
+  [[self host] setStringValue:@"127.0.0.1"];
+  [[self port] setStringValue:@"27017"];
   [[self username] setStringValue:@""];
   [[self password] setStringValue:@""];  
 }
