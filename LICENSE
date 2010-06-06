@@ -1,26 +1,3 @@
-h1. Mongo Explorer
-
-A simple Cocoa application to administer Mongo databases. This project is just starting, so please be lenient. My skills with Cocoa are also bare-bones: if you have suggestions on how to make this better, please get in touch.
-
-h2. TODO
-
-Everything?!?
-
-* Connect to the DB, as opposed to just have a GUI;
-* Display documents hierarchically (nested documents);
-* Paginate or efficiently work with many, many documents;
-* Query interface against a DB / collection;
-* Think about UI paradigms;
-* Copy/Paste documents between databases / collections;
-
-h2. How to contribute?
-
-* Fork this repository
-* Make your changes
-* Send a pull request
-
-h2. LICENSE
-
 Copyright (c) 2010 François Beausoleil <francois@teksol.info>
 
  Permission is hereby granted, free of charge, to any person
