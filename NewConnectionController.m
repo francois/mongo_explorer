@@ -7,12 +7,9 @@
 //
 
 #import "NewConnectionController.h"
+#import "MEConnection.h"
 
-NSString *MEHost = @"Host";
-NSString *MEPort = @"Port";
-NSString *MEUsername = @"Username";
-NSString *MEPassword = @"Password";
-NSString *MEConnectionRequest = @"ConnectionRequest";
+NSString * const MEConnectionRequest = @"ConnectionRequest";
 
 @implementation NewConnectionController
 

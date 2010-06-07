@@ -7,10 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "mongo.h"
+@class MEConnection;
 
 @interface DatabaseController : NSWindowController {
-  mongo_connection *connection;
+  MEConnection *connection;
 }
 
 @property(nonatomic, copy) NSDictionary *connectionInfo;

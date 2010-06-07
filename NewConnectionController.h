@@ -8,11 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-extern NSString *MEHost;
-extern NSString *MEPort;
-extern NSString *MEUsername;
-extern NSString *MEPassword;
-extern NSString *MEConnectionRequest;
+extern NSString * const MEConnectionRequest;
 
 @interface NewConnectionController : NSWindowController {
 }
