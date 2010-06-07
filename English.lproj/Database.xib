@@ -508,14 +508,13 @@
 				<nil key="NSParentWindow"/>
 				<nil key="NSDelegate"/>
 			</object>
-			<object class="NSArrayController" id="172860651">
+			<object class="NSArrayController" id="131351912">
 				<object class="NSMutableArray" key="NSDeclaredKeys">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>name</string>
 					<string>sizeOnDisk</string>
 					<string>collections</string>
 				</object>
-				<bool key="NSEditable">YES</bool>
 				<object class="_NSManagedProxy" key="_NSManagedProxy"/>
 				<bool key="NSAvoidsEmptySelection">YES</bool>
 				<bool key="NSPreservesSelection">YES</bool>
@@ -562,10 +561,10 @@
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
 						<string key="label">contentArray: databases</string>
-						<reference key="source" ref="172860651"/>
+						<reference key="source" ref="131351912"/>
 						<reference key="destination" ref="1001"/>
 						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="172860651"/>
+							<reference key="NSSource" ref="131351912"/>
 							<reference key="NSDestination" ref="1001"/>
 							<string key="NSLabel">contentArray: databases</string>
 							<string key="NSBinding">contentArray</string>
@@ -579,10 +578,10 @@
 					<object class="IBBindingConnection" key="connection">
 						<string key="label">value: arrangedObjects.name</string>
 						<reference key="source" ref="815602505"/>
-						<reference key="destination" ref="172860651"/>
+						<reference key="destination" ref="131351912"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="815602505"/>
-							<reference key="NSDestination" ref="172860651"/>
+							<reference key="NSDestination" ref="131351912"/>
 							<string key="NSLabel">value: arrangedObjects.name</string>
 							<string key="NSBinding">value</string>
 							<string key="NSKeyPath">arrangedObjects.name</string>
@@ -595,10 +594,10 @@
 					<object class="IBBindingConnection" key="connection">
 						<string key="label">value: arrangedObjects.sizeOnDisk</string>
 						<reference key="source" ref="808002866"/>
-						<reference key="destination" ref="172860651"/>
+						<reference key="destination" ref="131351912"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="808002866"/>
-							<reference key="NSDestination" ref="172860651"/>
+							<reference key="NSDestination" ref="131351912"/>
 							<string key="NSLabel">value: arrangedObjects.sizeOnDisk</string>
 							<string key="NSBinding">value</string>
 							<string key="NSKeyPath">arrangedObjects.sizeOnDisk</string>
@@ -606,6 +605,56 @@
 						</object>
 					</object>
 					<int key="connectionID">38</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">content: arrangedObjects</string>
+						<reference key="source" ref="619795612"/>
+						<reference key="destination" ref="131351912"/>
+						<object class="NSNibBindingConnector" key="connector" id="334163192">
+							<reference key="NSSource" ref="619795612"/>
+							<reference key="NSDestination" ref="131351912"/>
+							<string key="NSLabel">content: arrangedObjects</string>
+							<string key="NSBinding">content</string>
+							<string key="NSKeyPath">arrangedObjects</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">43</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">selectionIndexes: selectionIndexes</string>
+						<reference key="source" ref="619795612"/>
+						<reference key="destination" ref="131351912"/>
+						<object class="NSNibBindingConnector" key="connector" id="674746892">
+							<reference key="NSSource" ref="619795612"/>
+							<reference key="NSDestination" ref="131351912"/>
+							<string key="NSLabel">selectionIndexes: selectionIndexes</string>
+							<string key="NSBinding">selectionIndexes</string>
+							<string key="NSKeyPath">selectionIndexes</string>
+							<reference key="NSPreviousConnector" ref="334163192"/>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">44</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">sortDescriptors: sortDescriptors</string>
+						<reference key="source" ref="619795612"/>
+						<reference key="destination" ref="131351912"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="619795612"/>
+							<reference key="NSDestination" ref="131351912"/>
+							<string key="NSLabel">sortDescriptors: sortDescriptors</string>
+							<string key="NSBinding">sortDescriptors</string>
+							<string key="NSKeyPath">sortDescriptors</string>
+							<reference key="NSPreviousConnector" ref="674746892"/>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">45</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -809,7 +858,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">34</int>
-						<reference key="object" ref="172860651"/>
+						<reference key="object" ref="131351912"/>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Databases</string>
 					</object>
@@ -896,7 +945,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">38</int>
+			<int key="maxID">45</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
