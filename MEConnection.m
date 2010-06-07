@@ -43,6 +43,10 @@ NSString * const MEPassword = @"Password";
   [super dealloc];
 }
 
+-(NSString)connectionString {
+  return [NSString stringWithFormat:@"mongodb://%@:%@@%@:%d", self.username, self.password, self.host, self.port];
+}
+
 -(int)connect {
   if (connection) return mongo_conn_success;
 
@@ -55,7 +59,7 @@ NSString * const MEPassword = @"Password";
   mongo_conn_return result;
   connection = (mongo_connection *)malloc(sizeof(mongo_connection));
   if (connection) {
-    NSLog(@"Connecting to mongo://%@:%@@%@:%d", self.username, self.password, self.host, self.port);
+    NSLog(@"Connecting to %@", [self connectionString]);
     result = mongo_connect(connection, &opts);
   } else {
     result = mongo_conn_fail; /* Hard-coded failure: could not allocate memory */
@@ -68,7 +72,7 @@ NSString * const MEPassword = @"Password";
 -(void)disconnect {
   if (!connection) return;
 
-  NSLog(@"Disconnecting from mongo://%@:%@@%@:%d", self.username, self.password, self.host, self.port);
+  NSLog(@"Disconnecting from %@", [self connectionString]);
   [self willChangeValueForKey:@"connected"];
 
   mongo_destroy(connection);
