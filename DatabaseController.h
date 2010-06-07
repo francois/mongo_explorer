@@ -14,6 +14,8 @@
 }
 
 @property(nonatomic, copy) NSDictionary *connectionInfo;
+@property(nonatomic, retain) IBOutlet NSDrawer *drawer;
+@property(nonatomic, copy) NSArray *databases;
 
 -(id)initWithConnectionOptions:(NSDictionary *)connectionOptions;
 
