@@ -28,6 +28,18 @@
     case bson_string: return [[NSString stringWithCString:bson_iterator_string(it) encoding:NSUTF8StringEncoding] autorelease];
     case bson_null:   return nil;
 
+    case bson_oid: {
+      char* buffer = (char*)malloc(24 * 2 + 1); // 24 hex chars + 1 NUL
+      if (buffer) {
+        bson_oid_to_string(bson_iterator_oid(it), buffer);
+        NSString *oid = [[NSString stringWithCString:buffer encoding:NSUTF8StringEncoding] autorelease];
+        free(buffer);
+        return oid;
+      } else {
+        return @"Out of memory";
+      }
+    } 
+
     case bson_array: {
       bson_iterator sub;
       bson_iterator_subiterator(it, &sub);
@@ -39,13 +51,14 @@
       bson_iterator_subiterator(it, &sub);
       return [MEUtils dictionaryFromBsonIterator:&sub];
     }
-      //      case bson_oid:
-      //      case bson_date:
-      //      case bson_timestamp:
+
+    case bson_date:
+    case bson_timestamp:
+      return [NSDate dateWithTimeIntervalSince1970:bson_iterator_date(it)];
       
     default:
       NSLog(@"MEUtils does not handle type %d", bson_iterator_type(it));
-      return nil;
+      return @"<null>";
   }
 }
      

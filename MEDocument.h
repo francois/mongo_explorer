@@ -7,10 +7,19 @@
 //
 
 #import <Cocoa/Cocoa.h>
+@class MEConnection;
+@class MECollection;
 
-
-@interface MEDocument : NSMutableDictionary {
+@interface MEDocument : NSObject {
 
 }
+
+@property(nonatomic, readonly) NSArray *keys;
+@property(nonatomic, readonly) NSArray *deepKeys;
+@property(nonatomic, copy) NSMutableDictionary *data;
+@property(nonatomic, retain) MEConnection *connection;
+@property(nonatomic, retain) MECollection *collection;
+
+-(id)initWithCollection:(MECollection *)collection info:(NSDictionary *)info connection:(MEConnection *)connection;
 
 @end

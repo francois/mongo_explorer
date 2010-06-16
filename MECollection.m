@@ -9,18 +9,21 @@
 #import "MECollection.h"
 #import "MEDatabase.h"
 #import "MEConnection.h"
+#import "MEDocument.h"
+#import "MEUtils.h"
 
 @implementation MECollection
 
-@synthesize connection, database, name, documents;
+@synthesize connection, database, fullName, name, documents;
 
 -(id)initWithDatabase:(MEDatabase *)aDatabase info:(NSDictionary *)info connection:(MEConnection *)aConnection {
   if (![super init]) return nil;
 
   self.connection = aConnection;
   self.database = aDatabase;
+  self.fullName = [info objectForKey:@"name"];
   self.name = [[info objectForKey:@"name"] stringByReplacingOccurrencesOfString:[self.database.name stringByAppendingString:@"."] withString:@""];
-  self.documents = [NSArray array];
+  self.documents = [self reload];
   
   return self;
 }
@@ -31,6 +34,27 @@
   self.name = nil;
   self.documents = nil;
   [super dealloc];
+}
+
+-(NSArray *)reload {
+  if ([self.connection connect]) return [NSArray array];
+  
+  NSMutableArray *results = [[NSMutableArray alloc] init];
+  
+  bson query, fields;
+  const char* ns = [self.fullName cStringUsingEncoding:NSUTF8StringEncoding];
+  mongo_cursor *cursor = mongo_find([self.connection mongo_connection], ns, bson_empty(&query), bson_empty(&fields), 0, 0, 0);
+  while(mongo_cursor_next(cursor)) {
+    bson_iterator it;
+    bson_iterator_init(&it, cursor->current.data);
+    NSDictionary *info = [MEUtils dictionaryFromBsonIterator:&it];
+    [results addObject:[[[MEDocument alloc] initWithCollection:self info:info connection:self.connection] autorelease]];
+  }
+  
+  mongo_cursor_destroy(cursor);
+  
+  NSLog(@"MECollection#reload:\n%@", results);
+  return results;
 }
 
 -(long)numberOfDocuments {
