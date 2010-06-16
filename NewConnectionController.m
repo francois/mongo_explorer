@@ -21,6 +21,7 @@ NSString * const MEConnectionRequest = @"ConnectionRequest";
 }
 
 -(void)resetFields {
+  NSLog(@"NewConnectionController#resetFields");
   [[self host] setStringValue:@"127.0.0.1"];
   [[self port] setStringValue:@"27017"];
   [[self username] setStringValue:@""];
@@ -38,16 +39,15 @@ NSString * const MEConnectionRequest = @"ConnectionRequest";
                                      [NSNumber numberWithInt:[[self port] intValue]], MEPort,
                                      [[self username] stringValue], MEUsername,
                                      [[self password] stringValue], MEPassword, nil];
+  [self cancel:self];
+
   [[NSNotificationCenter defaultCenter] postNotificationName:MEConnectionRequest object:self userInfo:connectionOptions];
   [connectionOptions release];
-
-  [self resetFields];
-  [[self window] close];
 }
 
 -(IBAction)cancel:(id)sender {
   [self resetFields];
-  [[self window] close];
+  [[self window] orderOut:self];
 }
 
 @end

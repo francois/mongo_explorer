@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 @class MEConnection;
+@class MEDatabase;
 
 @interface DatabaseController : NSWindowController {
   MEConnection *connection;
@@ -16,6 +17,8 @@
 @property(nonatomic, copy) NSDictionary *connectionInfo;
 @property(nonatomic, retain) IBOutlet NSDrawer *drawer;
 @property(nonatomic, copy) NSArray *databases;
+@property(nonatomic, retain) IBOutlet NSArrayController *arrayController;
+@property(nonatomic, retain) MEDatabase *database;
 
 -(id)initWithConnectionOptions:(NSDictionary *)connectionOptions;
 

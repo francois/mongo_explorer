@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F121D5311BF2C710063D987 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F121D5211BF2C710063D987 /* BWToolkitFramework.framework */; };
+		0F121D8E11BF2FEE0063D987 /* MEDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F121D8D11BF2FEE0063D987 /* MEDatabase.m */; };
+		0F121D9111BF2FF30063D987 /* MECollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F121D9011BF2FF30063D987 /* MECollection.m */; };
+		0F4583D411C7B6E600A5C698 /* MEUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4583D311C7B6E600A5C698 /* MEUtils.m */; };
+		0F4583D811C7B6EF00A5C698 /* MEDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4583D711C7B6EF00A5C698 /* MEDocument.m */; };
 		0FC7B8AA11BB493500ADE4BE /* NewConnectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC7B8A911BB493500ADE4BE /* NewConnectionController.m */; };
 		0FC7B98711BC190C00ADE4BE /* DatabaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC7B98611BC190C00ADE4BE /* DatabaseController.m */; };
 		0FC7B9B511BC1B2100ADE4BE /* Database.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC7B9B411BC1B2100ADE4BE /* Database.xib */; };
@@ -25,6 +30,15 @@
 
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0F121D5211BF2C710063D987 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = /Users/francois/Library/Frameworks/BWToolkitFramework.framework; sourceTree = "<absolute>"; };
+		0F121D8C11BF2FEE0063D987 /* MEDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEDatabase.h; sourceTree = "<group>"; };
+		0F121D8D11BF2FEE0063D987 /* MEDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEDatabase.m; sourceTree = "<group>"; };
+		0F121D8F11BF2FF30063D987 /* MECollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECollection.h; sourceTree = "<group>"; };
+		0F121D9011BF2FF30063D987 /* MECollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECollection.m; sourceTree = "<group>"; };
+		0F4583D211C7B6E600A5C698 /* MEUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEUtils.h; sourceTree = "<group>"; };
+		0F4583D311C7B6E600A5C698 /* MEUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEUtils.m; sourceTree = "<group>"; };
+		0F4583D611C7B6EF00A5C698 /* MEDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEDocument.h; sourceTree = "<group>"; };
+		0F4583D711C7B6EF00A5C698 /* MEDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEDocument.m; sourceTree = "<group>"; };
 		0FC7B87911BB44BF00ADE4BE /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/Database.xib; sourceTree = "<group>"; };
 		0FC7B87C11BB471000ADE4BE /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/Connection.xib; sourceTree = "<group>"; };
 		0FC7B8A811BB493500ADE4BE /* NewConnectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewConnectionController.h; sourceTree = "<group>"; };
@@ -61,6 +75,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				0F121D5311BF2C710063D987 /* BWToolkitFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +116,14 @@
 			children = (
 				0FC7BB5811BC795A00ADE4BE /* MEConnection.h */,
 				0FC7BB5911BC795A00ADE4BE /* MEConnection.m */,
+				0F121D8C11BF2FEE0063D987 /* MEDatabase.h */,
+				0F121D8D11BF2FEE0063D987 /* MEDatabase.m */,
+				0F121D8F11BF2FF30063D987 /* MECollection.h */,
+				0F121D9011BF2FF30063D987 /* MECollection.m */,
+				0F4583D211C7B6E600A5C698 /* MEUtils.h */,
+				0F4583D311C7B6E600A5C698 /* MEUtils.m */,
+				0F4583D611C7B6EF00A5C698 /* MEDocument.h */,
+				0F4583D711C7B6EF00A5C698 /* MEDocument.m */,
 			);
 			name = Connection;
 			sourceTree = "<group>";
@@ -109,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+				0F121D5211BF2C710063D987 /* BWToolkitFramework.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -241,6 +265,10 @@
 				0FC7BA4011BC2CA000ADE4BE /* mongo.c in Sources */,
 				0FC7BA4111BC2CA000ADE4BE /* numbers.c in Sources */,
 				0FC7BB5A11BC795A00ADE4BE /* MEConnection.m in Sources */,
+				0F121D8E11BF2FEE0063D987 /* MEDatabase.m in Sources */,
+				0F121D9111BF2FF30063D987 /* MECollection.m in Sources */,
+				0F4583D411C7B6E600A5C698 /* MEUtils.m in Sources */,
+				0F4583D811C7B6EF00A5C698 /* MEDocument.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +315,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Library/Frameworks\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
@@ -304,6 +336,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../Library/Frameworks\"",
+				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Mongo_Explorer_Prefix.pch;
