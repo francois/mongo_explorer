@@ -7,6 +7,10 @@
 //
 
 #import "MEConnection.h"
+#import "MEDatabase.h"
+#import "MECollection.h"
+#import "MEUtils.h"
+#include <assert.h>
 
 NSString * const MEDBName = @"name";
 NSString * const MEDBSize = @"sizeOnDisk";
@@ -43,8 +47,16 @@ NSString * const MEPassword = @"Password";
   [super dealloc];
 }
 
--(NSString)connectionString {
-  return [NSString stringWithFormat:@"mongodb://%@:%@@%@:%d", self.username, self.password, self.host, self.port];
+-(NSString *)connectionString {
+  if ([self.username length]) {
+    if ([self.password length]) {
+      return [NSString stringWithFormat:@"mongodb://%@@%@:%d", self.username, self.host, self.port];
+    } else {
+      return [NSString stringWithFormat:@"mongodb://%@:%@@%@:%d", self.username, self.password, self.host, self.port];
+    }
+  } else {
+    return [NSString stringWithFormat:@"mongodb://%@:%d", self.host, self.port];
+  }
 }
 
 -(int)connect {
@@ -109,40 +121,59 @@ NSString * const MEPassword = @"Password";
 
   bson_bool_t result;
   result = mongo_run_command(connection, "admin", bson_from_buffer(&query, &qbuffer), bson_empty(&out));
-  if (!result) return [NSSet set];
+  if (!result) {
+    bson_destroy(&out);
+    bson_destroy(&query);
+    bson_buffer_destroy(&qbuffer);
+
+    return [NSSet set];
+  }
   
   bson_iterator it;
   bson_iterator_init(&it, out.data);
+  NSDictionary *dict = [MEUtils dictionaryFromBsonIterator:&it];
+  NSMutableArray *output = [[[NSMutableArray alloc] initWithCapacity:[[dict objectForKey:@"databases"] count]] autorelease];
+  for(NSDictionary *dbinfo in [dict objectForKey:@"databases"]) {
+    [output addObject:[[[MEDatabase alloc] initWithInfo:dbinfo connection:self] autorelease]];
+  }
+
+  bson_destroy(&out);
+  bson_destroy(&query);
+  return [NSSet setWithArray:output];
+}
+
+-(long)documentsInCollection:(NSString *)collectionName database:(NSString *)dbname {
+  // adgear_staging.$cmd { count: "segmented_inventory_43", query: {}, fields: {} }
+  if ([self connect]) return 0;
   
-  NSMutableSet *dbs = [NSMutableSet set];
-  while(bson_iterator_next(&it)){
-    if (0 == strcmp(bson_iterator_key(&it), "databases")) {
-      bson_iterator it0;
-      bson_iterator_subiterator(&it, &it0);
-      while(bson_iterator_next(&it0)) {
-        if (bson_object == bson_iterator_type(&it0)) {
-          bson_iterator it1;
-          bson_iterator_subiterator(&it0, &it1);
-          NSMutableDictionary *row = [[NSMutableDictionary alloc] init];
-          while(bson_iterator_next(&it1)) {
-            if (0 == strcmp("name", bson_iterator_key(&it1))) {
-              const char* dbname = bson_iterator_string(&it1);
-              [row setObject:[NSString stringWithCString:dbname encoding:NSUTF8StringEncoding] forKey:@"name"];
-            } else if (0 == strcmp("sizeOnDisk", bson_iterator_key(&it1))) {
-              [row setObject:[NSNumber numberWithLong:bson_iterator_long(&it1)] forKey:@"sizeOnDisk"];
-            }
-          }
-          
-          if ([row count] > 0) [dbs addObject:row];
-        }
-      }
+  bson query, out;
+  bson_buffer qbuffer;
+  bson_buffer_init(&qbuffer);
+  bson_append_string(&qbuffer, "count", [collectionName cStringUsingEncoding:NSUTF8StringEncoding]);
+  
+  bson_bool_t result;
+  result = mongo_run_command(connection, [dbname cStringUsingEncoding:NSUTF8StringEncoding], bson_from_buffer(&query, &qbuffer), bson_empty(&out));
+  bson_buffer_destroy(&qbuffer);
+  if (!result) return 0;
+
+  bson_iterator it;
+  bson_iterator_init(&it, out.data);
+  long n = -1;
+  while(bson_iterator_next(&it)) {
+    if (0 == strcmp("n", bson_iterator_key(&it))) {
+      n = bson_iterator_long(&it);
+      break;
     }
   }
   
-  bson_destroy(&out);
-  bson_destroy(&query);
+  NSAssert(-1 != n, @"Never hit the 'n' key in the returned document");
 
-  return dbs;
+  return n;
+}
+
+-(mongo_connection *)mongo_connection {
+  if ([self connect]) return NULL;
+  return connection;
 }
 
 @end

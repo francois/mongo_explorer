@@ -43,6 +43,7 @@ extern NSString * const MEPassword;
 @property(nonatomic, copy) NSString *username;
 @property(nonatomic, copy) NSString *password;
 @property(readonly) BOOL connected;
+@property(readonly) NSString *connectionString;
 
 -(id)initWithConnectionInfo:(NSDictionary *)connectionInfo;
  
@@ -64,11 +65,10 @@ extern NSString * const MEPassword;
 
 /* Returns the databases available to this instance.
  *
- * The return value is an NSSet of NSDictionary objects. Each NSDictionary has the following keys:
- *
- * * MEDBName - NSString: The database's name;
- * * MEDBSize - NSNumber: The number of bytes this DB physically occupies on disk.
+ * The return value is an NSSet of MEDatabase objects.
  */
 -(NSSet *)databases;
+
+-(mongo_connection *)mongo_connection;
 
 @end
