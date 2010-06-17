@@ -18,7 +18,6 @@
 @property(nonatomic, copy) NSString *fullName;
 @property(nonatomic, copy) NSString *name;
 @property(nonatomic, retain) NSArray *documents;
-@property(nonatomic, readonly) long numberOfDocuments;
 @property(nonatomic, readonly) NSString *description;
 
 -(id)initWithDatabase:(MEDatabase *)database info:(NSDictionary *)info connection:(MEConnection *)connection;

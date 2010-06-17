@@ -13,11 +13,12 @@
 
 @implementation MEDatabase
 
-@synthesize connection, name, collections;
+@synthesize connection, name, collections, sizeOnDisk;
 
 -(id)initWithInfo:(NSDictionary *)info connection:(MEConnection *)aConnection {
   if (![super init]) return nil;
   self.name = [info objectForKey:@"name"];
+  self.sizeOnDisk = [[info objectForKey:@"sizeOnDisk"] longValue];
   self.connection = aConnection;
   self.collections = [self reload];
 

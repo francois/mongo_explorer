@@ -52,13 +52,8 @@
   }
   
   mongo_cursor_destroy(cursor);
-  
-  NSLog(@"MECollection#reload:\n%@", results);
-  return results;
-}
 
--(long)numberOfDocuments {
-  return [self.documents count];
+  return results;
 }
 
 -(NSString *)description {

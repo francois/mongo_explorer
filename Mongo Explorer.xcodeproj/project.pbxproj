@@ -12,6 +12,8 @@
 		0F121D9111BF2FF30063D987 /* MECollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F121D9011BF2FF30063D987 /* MECollection.m */; };
 		0F4583D411C7B6E600A5C698 /* MEUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4583D311C7B6E600A5C698 /* MEUtils.m */; };
 		0F4583D811C7B6EF00A5C698 /* MEDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4583D711C7B6EF00A5C698 /* MEDocument.m */; };
+		0F96C89111C9930D00A4C1F0 /* HumanSizedNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F96C89011C9930D00A4C1F0 /* HumanSizedNumber.m */; };
+		0F96C89E11C9954B00A4C1F0 /* HumanSizedSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F96C89D11C9954B00A4C1F0 /* HumanSizedSize.m */; };
 		0FC7B8AA11BB493500ADE4BE /* NewConnectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC7B8A911BB493500ADE4BE /* NewConnectionController.m */; };
 		0FC7B98711BC190C00ADE4BE /* DatabaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC7B98611BC190C00ADE4BE /* DatabaseController.m */; };
 		0FC7B9B511BC1B2100ADE4BE /* Database.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC7B9B411BC1B2100ADE4BE /* Database.xib */; };
@@ -39,6 +41,10 @@
 		0F4583D311C7B6E600A5C698 /* MEUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEUtils.m; sourceTree = "<group>"; };
 		0F4583D611C7B6EF00A5C698 /* MEDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEDocument.h; sourceTree = "<group>"; };
 		0F4583D711C7B6EF00A5C698 /* MEDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEDocument.m; sourceTree = "<group>"; };
+		0F96C88F11C9930D00A4C1F0 /* HumanSizedNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanSizedNumber.h; sourceTree = "<group>"; };
+		0F96C89011C9930D00A4C1F0 /* HumanSizedNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HumanSizedNumber.m; sourceTree = "<group>"; };
+		0F96C89C11C9954B00A4C1F0 /* HumanSizedSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanSizedSize.h; sourceTree = "<group>"; };
+		0F96C89D11C9954B00A4C1F0 /* HumanSizedSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HumanSizedSize.m; sourceTree = "<group>"; };
 		0FC7B87911BB44BF00ADE4BE /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/Database.xib; sourceTree = "<group>"; };
 		0FC7B87C11BB471000ADE4BE /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/Connection.xib; sourceTree = "<group>"; };
 		0FC7B8A811BB493500ADE4BE /* NewConnectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewConnectionController.h; sourceTree = "<group>"; };
@@ -91,6 +97,10 @@
 				0FC7B8A911BB493500ADE4BE /* NewConnectionController.m */,
 				0FC7B98511BC190C00ADE4BE /* DatabaseController.h */,
 				0FC7B98611BC190C00ADE4BE /* DatabaseController.m */,
+				0F96C88F11C9930D00A4C1F0 /* HumanSizedNumber.h */,
+				0F96C89011C9930D00A4C1F0 /* HumanSizedNumber.m */,
+				0F96C89C11C9954B00A4C1F0 /* HumanSizedSize.h */,
+				0F96C89D11C9954B00A4C1F0 /* HumanSizedSize.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -269,6 +279,8 @@
 				0F121D9111BF2FF30063D987 /* MECollection.m in Sources */,
 				0F4583D411C7B6E600A5C698 /* MEUtils.m in Sources */,
 				0F4583D811C7B6EF00A5C698 /* MEDocument.m in Sources */,
+				0F96C89111C9930D00A4C1F0 /* HumanSizedNumber.m in Sources */,
+				0F96C89E11C9954B00A4C1F0 /* HumanSizedSize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

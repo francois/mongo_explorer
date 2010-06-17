@@ -16,6 +16,7 @@
 @property(nonatomic, copy) NSString *name;
 @property(nonatomic, retain) NSArray *collections;
 @property(nonatomic, readonly) NSString *description;
+@property(nonatomic, assign) long sizeOnDisk;
 
 -(id)initWithInfo:(NSDictionary *)info connection:(MEConnection *)connection;
 
