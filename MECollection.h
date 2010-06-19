@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 @class MEConnection;
 @class MEDatabase;
+@class MECursor;
 
 @interface MECollection : NSObject {
 }
@@ -17,10 +18,19 @@
 @property(nonatomic, retain) MEDatabase *database;
 @property(nonatomic, copy) NSString *fullName;
 @property(nonatomic, copy) NSString *name;
-@property(nonatomic, retain) NSArray *documents;
+@property(nonatomic, readonly) unsigned long documentsCount;
 @property(nonatomic, readonly) NSString *description;
 
 -(id)initWithDatabase:(MEDatabase *)database info:(NSDictionary *)info connection:(MEConnection *)connection;
--(NSArray *)reload;
+
+/**
+ * Returns an MECursor that will return all documents when iterated over.
+ */
+-(MECursor *)find;
+
+/**
+ * Returns an MECursor that will find a subset of all documents, when iterated over.
+ */
+-(MECursor *)find:(NSDictionary *)query;
 
 @end

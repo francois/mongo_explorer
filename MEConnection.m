@@ -176,4 +176,18 @@ NSString * const MEPassword = @"Password";
   return connection;
 }
 
+-(unsigned long)documentsCountFromCollection:(NSString *)collectionName database:(NSString *)databaseName {
+  if ([self connect]) return 0;
+
+  
+  bson empty;
+  bson_empty(&empty);
+  int64_t count;
+  count = mongo_count(connection,
+                      [databaseName cStringUsingEncoding:NSUTF8StringEncoding],
+                      [collectionName cStringUsingEncoding:NSUTF8StringEncoding],
+                      &empty);
+  return count;
+}
+
 @end

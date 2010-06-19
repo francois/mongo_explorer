@@ -71,4 +71,6 @@ extern NSString * const MEPassword;
 
 -(mongo_connection *)mongo_connection;
 
+-(unsigned long)documentsCountFromCollection:(NSString *)collectionName database:(NSString *)databaseName;
+
 @end

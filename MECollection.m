@@ -10,11 +10,12 @@
 #import "MEDatabase.h"
 #import "MEConnection.h"
 #import "MEDocument.h"
+#import "MECursor.h"
 #import "MEUtils.h"
 
 @implementation MECollection
 
-@synthesize connection, database, fullName, name, documents;
+@synthesize connection, database, fullName, name;
 
 -(id)initWithDatabase:(MEDatabase *)aDatabase info:(NSDictionary *)info connection:(MEConnection *)aConnection {
   if (![super init]) return nil;
@@ -23,8 +24,7 @@
   self.database = aDatabase;
   self.fullName = [info objectForKey:@"name"];
   self.name = [[info objectForKey:@"name"] stringByReplacingOccurrencesOfString:[self.database.name stringByAppendingString:@"."] withString:@""];
-  self.documents = [self reload];
-  
+
   return self;
 }
 
@@ -32,7 +32,6 @@
   self.connection = nil;
   self.database = nil;
   self.name = nil;
-  self.documents = nil;
   [super dealloc];
 }
 
@@ -58,6 +57,18 @@
 
 -(NSString *)description {
   return self.name;
+}
+
+-(unsigned long)documentsCount {
+  return [self.connection documentsCountFromCollection:self.name database:[self.database name]];
+}
+
+-(MECursor *)find {
+  return nil;
+}
+
+-(MECursor *)find:(NSDictionary *)query {
+  return nil;
 }
 
 @end
