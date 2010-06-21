@@ -20,6 +20,7 @@
 @property(nonatomic, copy) NSString *name;
 @property(nonatomic, readonly) unsigned long documentsCount;
 @property(nonatomic, readonly) NSString *description;
+@property(nonatomic, readonly) NSString *namespace;
 
 -(id)initWithDatabase:(MEDatabase *)database info:(NSDictionary *)info connection:(MEConnection *)connection;
 

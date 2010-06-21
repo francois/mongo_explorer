@@ -64,11 +64,15 @@
 }
 
 -(MECursor *)find {
-  return nil;
+  return [self find:[NSDictionary dictionary]];
 }
 
 -(MECursor *)find:(NSDictionary *)query {
-  return nil;
+  return [[MECursor alloc] initWithCollection:self query:query];
+}
+
+-(NSString *)namespace {
+  return [NSString stringWithFormat:@"%@.%@", self.database.name, self.name];
 }
 
 @end
