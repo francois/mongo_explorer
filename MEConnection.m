@@ -7,6 +7,7 @@
 //
 
 #import "MEConnection.h"
+#import "MEConnection-Private.h"
 #import "MEDatabase.h"
 #import "MECollection.h"
 #import "MEUtils.h"
@@ -188,6 +189,30 @@ NSString * const MEPassword = @"Password";
                       [collectionName cStringUsingEncoding:NSUTF8StringEncoding],
                       &empty);
   return count;
+}
+
+-(mongo_cursor *)cursorForNamespace:(NSString *)namespace query:(NSDictionary *)aQuery fields:(NSDictionary *)aFields skipCount:(int)skipCount returnCount:(int)returnCount {
+  if ([self connect]) return NULL;
+
+  bson query;
+  bson_empty(&query);
+
+  bson fields;
+  bson_empty(&fields);
+
+  mongo_cursor *cursor;
+  cursor = mongo_find(connection, [namespace cStringUsingEncoding:NSUTF8StringEncoding], &query, &fields, returnCount, skipCount, 0);
+  if (!cursor) return NULL;
+  
+  return cursor;
+}
+
+-(MEDatabase *)databaseNamed:(NSString *)aName {
+  for(MEDatabase *db in [self databases]) {
+    if ([db.name isEqual:aName]) return db;
+  }
+
+  return nil;
 }
 
 @end

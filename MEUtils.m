@@ -74,4 +74,10 @@
   return dict;
 }
 
++(NSMutableDictionary *)dictionaryFromBson:(bson *)bson {
+  bson_iterator it;
+  bson_iterator_init(&it, bson->data);
+  return [MEUtils dictionaryFromBsonIterator:&it];
+}
+
 @end

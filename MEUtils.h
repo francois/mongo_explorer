@@ -15,5 +15,6 @@
 
 +(NSMutableDictionary *)dictionaryFromBsonIterator:(bson_iterator *)it;
 +(NSObject *)objectFromBsonIterator:(bson_iterator *)it;
++(NSMutableDictionary *)dictionaryFromBson:(bson *)bson;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "MEDatabase.h"
 #import "MEConnection.h"
+#import "MEConnection-Private.h"
 #import "MECollection.h"
 #import "MEUtils.h"
 
@@ -34,7 +35,7 @@
 -(NSArray *)reload {
   if ([self.connection connect]) return [NSArray array];
   
-  NSMutableArray *results = [[NSMutableArray alloc] init];
+  NSMutableArray *results = [[[NSMutableArray alloc] init] autorelease];
   
   bson query, fields;
   const char* ns = [[self.name stringByAppendingString:@".system.namespaces"] cStringUsingEncoding:NSUTF8StringEncoding];
@@ -44,7 +45,9 @@
     bson_iterator_init(&it, cursor->current.data);
     NSDictionary *info = [MEUtils dictionaryFromBsonIterator:&it];
     if ([[info objectForKey:@"name"] rangeOfString:@"$"].location == NSNotFound) {
-      [results addObject:[[[MECollection alloc] initWithDatabase:self info:info connection:self.connection] autorelease]];
+      MECollection *coll = [[MECollection alloc] initWithDatabase:self info:info connection:self.connection];
+      [results addObject:coll];
+      [coll release];
     }
   }
   
@@ -56,6 +59,15 @@
 
 -(NSString *)description {
   return self.name;
+}
+
+-(MECollection *)collectionNamed:(NSString *)aName {
+  NSArray *databases = [self reload];
+  for(MECollection *coll in databases) {
+    if ([coll.name isEqual:aName]) return coll;
+  }
+
+  return nil;
 }
 
 @end

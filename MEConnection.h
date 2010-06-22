@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "mongo.h"
+@class MEDatabase;
 
 /* The key under which you'll find the database's name in the returned NSDictionary
  * from -databases.
@@ -39,7 +40,7 @@ extern NSString * const MEPassword;
 }
 
 @property(nonatomic, copy) NSString *host;
-@property(nonatomic, assign) unsigned short port;
+@property(nonatomic, assign) NSUInteger port;
 @property(nonatomic, copy) NSString *username;
 @property(nonatomic, copy) NSString *password;
 @property(readonly) BOOL connected;
@@ -69,8 +70,9 @@ extern NSString * const MEPassword;
  */
 -(NSSet *)databases;
 
--(mongo_connection *)mongo_connection;
+/* Returns the named database, or nil if it doesn't exist. */
+-(MEDatabase *)databaseNamed:(NSString *)name;
 
--(unsigned long)documentsCountFromCollection:(NSString *)collectionName database:(NSString *)databaseName;
+-(NSUInteger)documentsCountFromCollection:(NSString *)collectionName database:(NSString *)databaseName;
 
 @end

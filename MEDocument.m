@@ -38,4 +38,8 @@
   return [NSArray array];
 }
 
+-(NSString *)description {
+  return [self.data description];
+}
+
 @end

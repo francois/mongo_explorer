@@ -8,6 +8,9 @@
 
 #import "MECursor.h"
 #import "MECollection.h"
+#import "MEConnection-Private.h"
+#import "MEUtils.h"
+#import "MEDocument.h"
 
 @implementation MECursor
 
@@ -19,7 +22,7 @@
   self.collection = aCollection;
   self.params = aDict;
   self.skipCount = 0;
-  self.returnCount = INT_MAX;
+  self.returnCount = UINT32_MAX;
 
   return self;
 }
@@ -36,12 +39,12 @@
   [super dealloc];
 }
 
--(MECursor *)skip:(int)number {
+-(MECursor *)skip:(NSUInteger)number {
   self.skipCount = number;
   return self;
 }
 
--(MECursor *)limit:(int)number {
+-(MECursor *)limit:(NSUInteger)number {
   self.returnCount = number;
   return self;
 }
@@ -53,23 +56,31 @@
 
 -(NSArray *)documents {
   NSArray *results = [self allObjects];
-  mongo_cursor_destroy(cursor);
-  cursor = NULL;
-
   return results;
 }
 
 -(void)ensureCursor {
   if (cursor) return;
+  
+  int nToReturn = self.returnCount < 0 ? self.returnCount : -1 * self.returnCount;
+  cursor = [self.collection.connection cursorForNamespace:self.collection.namespace
+                                                    query:self.params
+                                                   fields:nil
+                                                skipCount:self.skipCount
+                                              returnCount:nToReturn];
+}
 
-  const char* ns = [self.collection.namespace cStringUsingEncoding:NSUTF8StringEncoding];
-
-  bson query;
-  bson fields;
-  bson_empty(&query);
-  bson_empty(&fields);
-
-  cursor = mongo_find([self.collection.connection mongo_connection], ns, &query, &fields, self.returnCount, self.skipCount, 0);
+-(id)nextObject {
+  [self ensureCursor];
+  if (mongo_cursor_next(cursor)) {
+    return [[[MEDocument alloc] initWithCollection:self.collection
+                                              info:[MEUtils dictionaryFromBson:&cursor->current]
+                                        connection:self.collection.connection] autorelease];
+  } else {
+    mongo_cursor_destroy(cursor);
+    cursor = NULL;
+    return nil;
+  }
 }
 
 @end

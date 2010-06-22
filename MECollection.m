@@ -9,6 +9,7 @@
 #import "MECollection.h"
 #import "MEDatabase.h"
 #import "MEConnection.h"
+#import "MEConnection-Private.h"
 #import "MEDocument.h"
 #import "MECursor.h"
 #import "MEUtils.h"
@@ -37,9 +38,10 @@
 
 -(NSArray *)reload {
   if ([self.connection connect]) return [NSArray array];
-  
+
   NSMutableArray *results = [[NSMutableArray alloc] init];
-  
+
+  /* TODO: Reimplement in terms of MECursor and MEDocument */
   bson query, fields;
   const char* ns = [self.fullName cStringUsingEncoding:NSUTF8StringEncoding];
   mongo_cursor *cursor = mongo_find([self.connection mongo_connection], ns, bson_empty(&query), bson_empty(&fields), 0, 0, 0);
@@ -59,7 +61,7 @@
   return self.name;
 }
 
--(unsigned long)documentsCount {
+-(NSUInteger)documentsCount {
   return [self.connection documentsCountFromCollection:self.name database:[self.database name]];
 }
 
