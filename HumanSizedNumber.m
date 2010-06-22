@@ -19,26 +19,32 @@
   return NO;
 }
 
+#define KILO  (10L*10*10)
+#define MEGA  (KILO*KILO)
+#define GIGA  (MEGA*KILO)
+#define TERA  (GIGA*KILO)
+#define PETA  (TERA*KILO)
+#define EXA   (PETA*KILO)
+#define ZETTA (EXA*KILO)
+
 -(id)transformedValue:(id)value {
   if (value == nil) return nil;
   long val = [value longValue];
 
-  if (val < 1024) {
+  if (val < KILO) {
     return [NSString stringWithFormat:@"%ld", val];
-  } else if (val < 1000L) {
-    return [NSString stringWithFormat:@"%ldK", val / 1000];
-  } else if (val < 1000L * 1000) {
-    return [NSString stringWithFormat:@"%ldM", val / 1000 / 1000];
-  } else if (val < 1000L * 1000 * 1000) {
-    return [NSString stringWithFormat:@"%ldG", val / 1000 / 1000 / 1000];
-  } else if (val < 1000L * 1000 * 1000 * 1000) {
-    return [NSString stringWithFormat:@"%ldT", val / 1000 / 1000 / 1000 / 1000];
-  } else if (val < 1000L * 1000 * 1000 * 1000 * 1000) {
-    return [NSString stringWithFormat:@"%ldT", val / 1000 / 1000 / 1000 / 1000 / 1000];
-  } else if (val < 1000L * 1000 * 1000 * 1000 * 1000 * 1000) {
-    return [NSString stringWithFormat:@"%ldT", val / 1000 / 1000 / 1000 / 1000 / 1000 / 1000];
+  } else if (val < MEGA) {
+    return [NSString stringWithFormat:@"%.1fK", val / (float)KILO];
+  } else if (val < GIGA) {
+    return [NSString stringWithFormat:@"%.1fM", val / (float)MEGA];
+  } else if (val < TERA) {
+    return [NSString stringWithFormat:@"%.1fG", val / (float)GIGA];
+  } else if (val < PETA) {
+    return [NSString stringWithFormat:@"%.1fT", val / (float)TERA];
+  } else if (val < EXA) {
+    return [NSString stringWithFormat:@"%.1fT", val / (float)PETA];
   } else {
-    return [NSString stringWithFormat:@"%ldP", val / 1000 / 1000 / 1000 / 1000 / 1000 / 1000 / 1000];
+    return [NSString stringWithFormat:@"%.1fP", val / (float)EXA];
   }
 }
 
