@@ -9,16 +9,21 @@
 #import <Cocoa/Cocoa.h>
 @class MEConnection;
 @class MEDatabase;
+@class MECollection;
 
-@interface DatabaseController : NSWindowController {
+@interface DatabaseController : NSWindowController <NSTableViewDataSource> {
   MEConnection *connection;
 }
 
-@property(nonatomic, copy) NSDictionary *connectionInfo;
 @property(nonatomic, retain) IBOutlet NSDrawer *drawer;
+@property(nonatomic, retain) IBOutlet NSArrayController *databasesArrayController;
+@property(nonatomic, retain) IBOutlet NSArrayController *collectionsArrayController;
+@property(nonatomic, retain) IBOutlet NSTableView *documentsTable;
+
+@property(nonatomic, copy) NSDictionary *connectionInfo;
 @property(nonatomic, copy) NSArray *databases;
-@property(nonatomic, retain) IBOutlet NSArrayController *arrayController;
 @property(nonatomic, retain) MEDatabase *database;
+@property(nonatomic, retain) MECollection *currentCollection;
 
 -(id)initWithConnectionOptions:(NSDictionary *)connectionOptions;
 
