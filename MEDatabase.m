@@ -53,7 +53,6 @@
   
   mongo_cursor_destroy(cursor);
 
-  NSLog(@"MEDatabase#reload:\n%@", results);
   return results;
 }
 

@@ -146,12 +146,12 @@ NSString * const MEPassword = @"Password";
 -(long)documentsInCollection:(NSString *)collectionName database:(NSString *)dbname {
   // adgear_staging.$cmd { count: "segmented_inventory_43", query: {}, fields: {} }
   if ([self connect]) return 0;
-  
+
   bson query, out;
   bson_buffer qbuffer;
   bson_buffer_init(&qbuffer);
   bson_append_string(&qbuffer, "count", [collectionName cStringUsingEncoding:NSUTF8StringEncoding]);
-  
+
   bson_bool_t result;
   result = mongo_run_command(connection, [dbname cStringUsingEncoding:NSUTF8StringEncoding], bson_from_buffer(&query, &qbuffer), bson_empty(&out));
   bson_buffer_destroy(&qbuffer);
@@ -166,7 +166,7 @@ NSString * const MEPassword = @"Password";
       break;
     }
   }
-  
+
   NSAssert(-1 != n, @"Never hit the 'n' key in the returned document");
 
   return n;
