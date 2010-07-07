@@ -10,6 +10,7 @@
 		0F121D5311BF2C710063D987 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F121D5211BF2C710063D987 /* BWToolkitFramework.framework */; };
 		0F121D8E11BF2FEE0063D987 /* MEDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F121D8D11BF2FEE0063D987 /* MEDatabase.m */; };
 		0F121D9111BF2FF30063D987 /* MECollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F121D9011BF2FF30063D987 /* MECollection.m */; };
+		0F2E648911E40B3E009EC4DC /* MEArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E648811E40B3E009EC4DC /* MEArray.m */; };
 		0F4583D411C7B6E600A5C698 /* MEUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4583D311C7B6E600A5C698 /* MEUtils.m */; };
 		0F4583D811C7B6EF00A5C698 /* MEDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4583D711C7B6EF00A5C698 /* MEDocument.m */; };
 		0F96C89111C9930D00A4C1F0 /* HumanSizedNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F96C89011C9930D00A4C1F0 /* HumanSizedNumber.m */; };
@@ -38,6 +39,8 @@
 		0F121D8D11BF2FEE0063D987 /* MEDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEDatabase.m; sourceTree = "<group>"; };
 		0F121D8F11BF2FF30063D987 /* MECollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECollection.h; sourceTree = "<group>"; };
 		0F121D9011BF2FF30063D987 /* MECollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECollection.m; sourceTree = "<group>"; };
+		0F2E648711E40B3E009EC4DC /* MEArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEArray.h; sourceTree = "<group>"; };
+		0F2E648811E40B3E009EC4DC /* MEArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEArray.m; sourceTree = "<group>"; };
 		0F4583D211C7B6E600A5C698 /* MEUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEUtils.h; sourceTree = "<group>"; };
 		0F4583D311C7B6E600A5C698 /* MEUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEUtils.m; sourceTree = "<group>"; };
 		0F4583D611C7B6EF00A5C698 /* MEDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEDocument.h; sourceTree = "<group>"; };
@@ -141,6 +144,8 @@
 				0FBBB07211CD37D9001E48F2 /* MECursor.h */,
 				0FBBB07311CD37D9001E48F2 /* MECursor.m */,
 				0F7FB30011CEFD4D00BFF194 /* MEConnection-Private.h */,
+				0F2E648711E40B3E009EC4DC /* MEArray.h */,
+				0F2E648811E40B3E009EC4DC /* MEArray.m */,
 			);
 			name = Connection;
 			sourceTree = "<group>";
@@ -289,6 +294,7 @@
 				0F96C89111C9930D00A4C1F0 /* HumanSizedNumber.m in Sources */,
 				0F96C89E11C9954B00A4C1F0 /* HumanSizedSize.m in Sources */,
 				0FBBB07411CD37D9001E48F2 /* MECursor.m in Sources */,
+				0F2E648911E40B3E009EC4DC /* MEArray.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +382,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -390,6 +397,7 @@
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_GC = required;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;

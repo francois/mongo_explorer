@@ -13,10 +13,11 @@
 #import "MEDocument.h"
 #import "MECursor.h"
 #import "MEUtils.h"
+#import "MEArray.h"
 
 @implementation MECollection
 
-@synthesize connection, database, fullName, name;
+@synthesize connection, database, fullName, name, array;
 
 -(id)initWithDatabase:(MEDatabase *)aDatabase info:(NSDictionary *)info connection:(MEConnection *)aConnection {
   if (![super init]) return nil;
@@ -25,6 +26,7 @@
   self.database = aDatabase;
   self.fullName = [info objectForKey:@"name"];
   self.name = [[info objectForKey:@"name"] stringByReplacingOccurrencesOfString:[self.database.name stringByAppendingString:@"."] withString:@""];
+  self.array = [[MEArray alloc] initWithCollection:self];
 
   return self;
 }
@@ -33,6 +35,8 @@
   self.connection = nil;
   self.database = nil;
   self.name = nil;
+  self.array = nil;
+
   [super dealloc];
 }
 

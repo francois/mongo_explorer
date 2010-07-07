@@ -90,16 +90,4 @@
   // [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 }
 
-#pragma mark NSTableViewDataSource
-
--(NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-  NSLog(@"numberOfRowsInTableView:");
-  return [self.currentCollection documentsCount];
-}
-
--(id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
-  NSLog(@"tableView:objectValueForColumn:row:%d", row);
-  return @"tada";
-}
-
 @end

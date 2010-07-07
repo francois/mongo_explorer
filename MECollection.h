@@ -10,6 +10,7 @@
 @class MEConnection;
 @class MEDatabase;
 @class MECursor;
+@class MEArray;
 
 @interface MECollection : NSObject {
 }
@@ -21,6 +22,7 @@
 @property(nonatomic, readonly) NSUInteger documentsCount;
 @property(nonatomic, readonly) NSString *description;
 @property(nonatomic, readonly) NSString *namespace;
+@property(nonatomic, retain) MEArray *array;
 
 -(id)initWithDatabase:(MEDatabase *)database info:(NSDictionary *)info connection:(MEConnection *)connection;
 

@@ -16,9 +16,12 @@
 
 @property(nonatomic, readonly) NSArray *keys;
 @property(nonatomic, readonly) NSArray *deepKeys;
-@property(nonatomic, copy) NSMutableDictionary *data;
+@property(nonatomic, retain) NSMutableDictionary *data;
 @property(nonatomic, retain) MEConnection *connection;
 @property(nonatomic, retain) MECollection *collection;
+
+@property(nonatomic, readonly) NSString *oid;
+@property(nonatomic, readonly) NSString *abstractDocument;
 
 -(id)initWithCollection:(MECollection *)collection info:(NSDictionary *)info connection:(MEConnection *)connection;
 

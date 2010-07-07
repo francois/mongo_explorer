@@ -21,7 +21,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="128"/>
+			<integer value="131"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -824,8 +824,24 @@
 					<string>numberOfDocuments</string>
 					<string>documents.@count</string>
 					<string>documentsCount</string>
+					<string>array</string>
 				</object>
 				<string key="NSObjectClassName">MECollection</string>
+				<bool key="NSEditable">YES</bool>
+				<object class="_NSManagedProxy" key="_NSManagedProxy"/>
+				<bool key="NSAvoidsEmptySelection">YES</bool>
+				<bool key="NSPreservesSelection">YES</bool>
+				<bool key="NSSelectsInsertedObjects">YES</bool>
+				<bool key="NSFilterRestrictsInsertion">YES</bool>
+				<bool key="NSClearsFilterPredicateOnInsertion">YES</bool>
+			</object>
+			<object class="NSArrayController" id="613933262">
+				<object class="NSMutableArray" key="NSDeclaredKeys">
+					<bool key="EncodedWithXMLCoder">YES</bool>
+					<string>oid</string>
+					<string>abstractDocument</string>
+				</object>
+				<string key="NSObjectClassName">MEDocument</string>
 				<bool key="NSEditable">YES</bool>
 				<object class="_NSManagedProxy" key="_NSManagedProxy"/>
 				<bool key="NSAvoidsEmptySelection">YES</bool>
@@ -1168,6 +1184,70 @@
 						<reference key="destination" ref="757271598"/>
 					</object>
 					<int key="connectionID">141</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">contentArray: selection.array</string>
+						<reference key="source" ref="613933262"/>
+						<reference key="destination" ref="791971240"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="613933262"/>
+							<reference key="NSDestination" ref="791971240"/>
+							<string key="NSLabel">contentArray: selection.array</string>
+							<string key="NSBinding">contentArray</string>
+							<string key="NSKeyPath">selection.array</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">143</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">content: arrangedObjects</string>
+						<reference key="source" ref="757271598"/>
+						<reference key="destination" ref="613933262"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="757271598"/>
+							<reference key="NSDestination" ref="613933262"/>
+							<string key="NSLabel">content: arrangedObjects</string>
+							<string key="NSBinding">content</string>
+							<string key="NSKeyPath">arrangedObjects</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">144</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: arrangedObjects.oid</string>
+						<reference key="source" ref="378279852"/>
+						<reference key="destination" ref="613933262"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="378279852"/>
+							<reference key="NSDestination" ref="613933262"/>
+							<string key="NSLabel">value: arrangedObjects.oid</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">arrangedObjects.oid</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">145</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: arrangedObjects.abstractDocument</string>
+						<reference key="source" ref="159257185"/>
+						<reference key="destination" ref="613933262"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="159257185"/>
+							<reference key="NSDestination" ref="613933262"/>
+							<string key="NSLabel">value: arrangedObjects.abstractDocument</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">arrangedObjects.abstractDocument</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">147</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1552,6 +1632,12 @@
 						<reference key="object" ref="1055249144"/>
 						<reference key="parent" ref="378279852"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">142</int>
+						<reference key="object" ref="613933262"/>
+						<reference key="parent" ref="0"/>
+						<string key="objectName">Documents</string>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -1574,6 +1660,7 @@
 					<string>135.IBPluginDependency</string>
 					<string>136.IBPluginDependency</string>
 					<string>14.IBPluginDependency</string>
+					<string>142.IBPluginDependency</string>
 					<string>17.IBPluginDependency</string>
 					<string>3.IBEditorWindowLastContentRect</string>
 					<string>3.IBPluginDependency</string>
@@ -1604,6 +1691,7 @@
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1665,7 +1753,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">141</int>
+			<int key="maxID">147</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

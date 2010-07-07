@@ -42,4 +42,12 @@
   return [self.data description];
 }
 
+-(NSString *)oid {
+  return [self.data objectForKey:@"_id"];
+}
+
+-(NSString *)abstractDocument {
+  return [NSString stringWithFormat:@"abstract for %@", self.oid];
+}
+
 @end
