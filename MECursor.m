@@ -63,6 +63,7 @@
   if (cursor) return;
   
   int nToReturn = self.returnCount < 0 ? self.returnCount : -1 * self.returnCount;
+  NSLog(@"-[MECursor ensureCursor] (namespace=%@ query=%@ skipCount=%d returnCount=%d)", self.collection.namespace, self.params, self.skipCount, nToReturn);
   cursor = [self.collection.connection cursorForNamespace:self.collection.namespace
                                                     query:self.params
                                                    fields:nil
