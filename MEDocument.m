@@ -47,7 +47,11 @@
 }
 
 -(NSString *)abstractDocument {
-  return [NSString stringWithFormat:@"abstract for %@", self.oid];
+  NSCharacterSet *spaces = [NSCharacterSet characterSetWithCharactersInString:@" \t"];
+  NSArray *components = [[data description] componentsSeparatedByString:@"\n"];
+  [components makeObjectsPerformSelector:@selector(stringByTrimmingCharactersInSet:)
+                              withObject:spaces];
+  return [components componentsJoinedByString:@" "];
 }
 
 @end
