@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 @class MECollection;
 
-#define DEFAULT_REASONABLE_VALUE 100
+#define DEFAULT_REASONABLE_VALUE 1000
 
 @interface MEArray : NSArray {
   BOOL countCached;
