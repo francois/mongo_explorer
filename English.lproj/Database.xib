@@ -22,6 +22,7 @@
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="60"/>
+			<integer value="9"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -224,7 +225,7 @@
 																</object>
 															</object>
 															<double key="NSRowHeight">17</double>
-															<int key="NSTvFlags">-692060160</int>
+															<int key="NSTvFlags">-759169024</int>
 															<reference key="NSDelegate"/>
 															<reference key="NSDataSource"/>
 															<int key="NSColumnAutoresizingStyle">4</int>
@@ -459,7 +460,7 @@
 															<reference key="NSBackgroundColor" ref="1041296578"/>
 															<reference key="NSGridColor" ref="459490913"/>
 															<double key="NSRowHeight">17</double>
-															<int key="NSTvFlags">-692060160</int>
+															<int key="NSTvFlags">-759169024</int>
 															<reference key="NSDelegate"/>
 															<reference key="NSDataSource"/>
 															<int key="NSColumnAutoresizingStyle">4</int>
@@ -586,7 +587,7 @@
 				<string key="NSMaxSize">{1.79769e+308, 1.79769e+308}</string>
 			</object>
 			<object class="NSCustomView" id="1023240818">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">256</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -788,6 +789,7 @@
 					</object>
 				</object>
 				<string key="NSFrameSize">{228, 290}</string>
+				<reference key="NSSuperview"/>
 				<string key="NSClassName">NSView</string>
 			</object>
 			<object class="NSDrawer" id="636701652">
@@ -1206,7 +1208,7 @@
 						<string key="label">content: arrangedObjects</string>
 						<reference key="source" ref="757271598"/>
 						<reference key="destination" ref="613933262"/>
-						<object class="NSNibBindingConnector" key="connector" id="892917451">
+						<object class="NSNibBindingConnector" key="connector" id="330572043">
 							<reference key="NSSource" ref="757271598"/>
 							<reference key="NSDestination" ref="613933262"/>
 							<string key="NSLabel">content: arrangedObjects</string>
@@ -1254,13 +1256,13 @@
 						<string key="label">selectionIndexes: selectionIndexes</string>
 						<reference key="source" ref="757271598"/>
 						<reference key="destination" ref="613933262"/>
-						<object class="NSNibBindingConnector" key="connector" id="830201225">
+						<object class="NSNibBindingConnector" key="connector" id="891574771">
 							<reference key="NSSource" ref="757271598"/>
 							<reference key="NSDestination" ref="613933262"/>
 							<string key="NSLabel">selectionIndexes: selectionIndexes</string>
 							<string key="NSBinding">selectionIndexes</string>
 							<string key="NSKeyPath">selectionIndexes</string>
-							<reference key="NSPreviousConnector" ref="892917451"/>
+							<reference key="NSPreviousConnector" ref="330572043"/>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
@@ -1277,7 +1279,7 @@
 							<string key="NSLabel">sortDescriptors: sortDescriptors</string>
 							<string key="NSBinding">sortDescriptors</string>
 							<string key="NSKeyPath">sortDescriptors</string>
-							<reference key="NSPreviousConnector" ref="830201225"/>
+							<reference key="NSPreviousConnector" ref="891574771"/>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>

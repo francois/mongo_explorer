@@ -54,6 +54,8 @@
   [self.window makeKeyWindow];
   [self.drawer openOnEdge:NSMinXEdge];
 
+  self.databasesArrayController.sortDescriptors = [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES]];
+  self.collectionsArrayController.sortDescriptors = [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES]];
   [self.collectionsArrayController addObserver:self forKeyPath:@"selection" options:NSKeyValueObservingOptionNew context:nil];
 
   connection = [[MEConnection alloc] initWithConnectionInfo:self.connectionInfo];
