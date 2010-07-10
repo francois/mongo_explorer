@@ -14,7 +14,7 @@
 
 @implementation DatabaseController
 
-@synthesize connectionInfo, drawer, databases, databasesArrayController, collectionsArrayController, database, currentCollection, documentsTable;
+@synthesize connectionInfo, drawer, databases, databasesArrayController, collectionsArrayController, documentsArrayController, database, currentCollection, documentsTable;
 
 -(id)initWithConnectionOptions:(NSDictionary *)connectionOptions {
   if (![super initWithWindowNibName:@"Database"]) return nil;

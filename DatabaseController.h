@@ -18,6 +18,7 @@
 @property(nonatomic, retain) IBOutlet NSDrawer *drawer;
 @property(nonatomic, retain) IBOutlet NSArrayController *databasesArrayController;
 @property(nonatomic, retain) IBOutlet NSArrayController *collectionsArrayController;
+@property(nonatomic, retain) IBOutlet NSArrayController *documentsArrayController;
 @property(nonatomic, retain) IBOutlet NSTableView *documentsTable;
 
 @property(nonatomic, copy) NSDictionary *connectionInfo;
