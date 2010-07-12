@@ -191,7 +191,11 @@ NSString * const MEPassword = @"Password";
   return count;
 }
 
--(mongo_cursor *)cursorForNamespace:(NSString *)namespace query:(NSDictionary *)aQuery fields:(NSDictionary *)aFields skipCount:(int)skipCount returnCount:(int)returnCount {
+-(mongo_cursor *)cursorForNamespace:(NSString *)namespace
+                              query:(NSDictionary *)aQuery
+                             fields:(NSDictionary *)aFields
+                          skipCount:(int)skipCount
+                        returnCount:(int)returnCount {
   if ([self connect]) return NULL;
 
   bson query;
