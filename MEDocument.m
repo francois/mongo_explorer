@@ -12,7 +12,7 @@
 
 @implementation MEDocument
 
-@synthesize data, collection, connection;
+@synthesize data, collection, connection, flatView;
 
 -(id)initWithCollection:(MECollection *)aCollection info:(NSDictionary *)info connection:(MEConnection *)aConnection {
   if (![super init]) return nil;
@@ -20,22 +20,21 @@
   self.collection = aCollection;
   self.connection = aConnection;
   self.data = [info mutableCopy];
+
+  NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+  [self flattenInto:dict rootedAt:self.data path:[NSArray array]];
+  self.flatView = dict;
+  [dict release];
+  
   return self;
 }
 
 -(void)dealloc {
   self.collection = nil;
   self.connection = nil;
+  self.flatView = nil;
   self.data = nil;
   [super dealloc];
-}
-
--(NSArray *)keys {
-  return [NSArray array];
-}
-
--(NSArray *)deepKeys {
-  return [NSArray array];
 }
 
 -(NSString *)description {
@@ -52,6 +51,22 @@
   [components makeObjectsPerformSelector:@selector(stringByTrimmingCharactersInSet:)
                               withObject:spaces];
   return [components componentsJoinedByString:@" "];
+}
+
+-(void)flattenInto:(NSMutableDictionary *)target rootedAt:(NSDictionary *)root path:(NSArray *)path {
+  for(id key in root) {
+    id object = [root objectForKey:key];
+    NSMutableArray *newPath = [[NSMutableArray alloc] initWithArray:path copyItems:NO];
+    [newPath addObject:key];
+
+    if ([object isKindOfClass:[NSDictionary class]] || [object isKindOfClass:[NSMutableDictionary class]]) {
+      [self flattenInto:target rootedAt:object path:newPath];
+    } else {
+      [target setObject:object forKey:[newPath componentsJoinedByString:@"."]];
+    }
+
+    [newPath release];
+  }
 }
 
 @end

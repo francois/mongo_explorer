@@ -11,18 +11,17 @@
 @class MECollection;
 
 @interface MEDocument : NSObject {
-
 }
 
-@property(nonatomic, readonly) NSArray *keys;
-@property(nonatomic, readonly) NSArray *deepKeys;
 @property(nonatomic, retain) NSMutableDictionary *data;
 @property(nonatomic, retain) MEConnection *connection;
 @property(nonatomic, retain) MECollection *collection;
+@property(nonatomic, retain) NSMutableDictionary *flatView;
 
 @property(nonatomic, readonly) NSString *oid;
 @property(nonatomic, readonly) NSString *abstractDocument;
 
 -(id)initWithCollection:(MECollection *)collection info:(NSDictionary *)info connection:(MEConnection *)connection;
+-(void)flattenInto:(NSMutableDictionary *)target rootedAt:(NSDictionary *)root path:(NSArray *)path;
 
 @end
