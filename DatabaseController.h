@@ -25,7 +25,10 @@
 @property(nonatomic, copy) NSArray *databases;
 @property(nonatomic, retain) MEDatabase *database;
 @property(nonatomic, retain) MECollection *currentCollection;
+@property(nonatomic, copy) NSString *currentQuery;
 
 -(id)initWithConnectionOptions:(NSDictionary *)connectionOptions;
+
+-(IBAction)resetFilters:(id)sender;
 
 @end

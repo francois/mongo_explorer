@@ -19,6 +19,7 @@
    
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openConnection:) name:MEConnectionRequest object:nil];
+  [self newConnection:self];
 }
 
 -(void)openConnection:(NSNotification *)aNotification {

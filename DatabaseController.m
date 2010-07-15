@@ -14,7 +14,7 @@
 
 @implementation DatabaseController
 
-@synthesize connectionInfo, drawer, databases, databasesArrayController, collectionsArrayController, documentsArrayController, database, currentCollection, documentsTable;
+@synthesize connectionInfo, drawer, databases, databasesArrayController, collectionsArrayController, documentsArrayController, database, currentCollection, documentsTable, currentQuery;
 
 -(id)initWithConnectionOptions:(NSDictionary *)connectionOptions {
   if (![super initWithWindowNibName:@"Database"]) return nil;
@@ -90,6 +90,11 @@
 
   // If super ever implements, we'll have to call it
   // [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+}
+
+-(IBAction)resetFilters:(id)sender {
+  NSLog(@"Calling -[NSTableView reloadData] because of filter changes");
+  [self.documentsTable reloadData];
 }
 
 @end
