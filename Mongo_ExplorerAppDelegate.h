@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 @class NewConnectionController;
 
-@interface Mongo_ExplorerAppDelegate : NSObject <NSApplicationDelegate> {
+@interface Mongo_ExplorerAppDelegate : NSObject {
   NSWindowController *newConnectionController;
 }
 

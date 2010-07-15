@@ -14,6 +14,7 @@
 		0F3D80E311EEB6E600F6D44B /* README.textile in Resources */ = {isa = PBXBuildFile; fileRef = 0F3D80E211EEB6E600F6D44B /* README.textile */; };
 		0F4583D411C7B6E600A5C698 /* MEUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4583D311C7B6E600A5C698 /* MEUtils.m */; };
 		0F4583D811C7B6EF00A5C698 /* MEDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4583D711C7B6EF00A5C698 /* MEDocument.m */; };
+		0F95BBA111EF43C700020A06 /* BWToolkitFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0F121D5211BF2C710063D987 /* BWToolkitFramework.framework */; };
 		0F96C89111C9930D00A4C1F0 /* HumanSizedNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F96C89011C9930D00A4C1F0 /* HumanSizedNumber.m */; };
 		0F96C89E11C9954B00A4C1F0 /* HumanSizedSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F96C89D11C9954B00A4C1F0 /* HumanSizedSize.m */; };
 		0FBBB07411CD37D9001E48F2 /* MECursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBBB07311CD37D9001E48F2 /* MECursor.m */; };
@@ -32,6 +33,19 @@
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0F95BBA511EF43E500020A06 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0F95BBA111EF43C700020A06 /* BWToolkitFramework.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -234,6 +248,7 @@
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
+				0F95BBA511EF43E500020A06 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -391,7 +406,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx10.5;
 			};
 			name = Debug;
 		};
@@ -405,7 +420,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx10.5;
 			};
 			name = Release;
 		};

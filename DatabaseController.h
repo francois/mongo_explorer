@@ -11,7 +11,7 @@
 @class MEDatabase;
 @class MECollection;
 
-@interface DatabaseController : NSWindowController <NSTableViewDataSource> {
+@interface DatabaseController : NSWindowController {
   MEConnection *connection;
 }
 
