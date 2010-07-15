@@ -4,14 +4,21 @@ A simple Cocoa application to administer Mongo databases. This project is just s
 
 h2. TODO
 
-Everything?!?
+Nearly everything?!?
 
-* Connect to the DB, as opposed to just have a GUI;
 * Display documents hierarchically (nested documents);
 * Paginate or efficiently work with many, many documents;
 * Query interface against a DB / collection;
-* Think about UI paradigms;
+* Create, Update and Delete databases, collections and documents;
+* Create, Update and Delete keys within a document;
 * Copy/Paste documents between databases / collections;
+* Use an NSToolbar (maybe?) for the database / collection choosers.
+
+h2. Completed
+
+* Connect to Mongo;
+* Retrieve databases, collections and documents;
+* View documents using a flattened view.
 
 h2. How to contribute?
 
