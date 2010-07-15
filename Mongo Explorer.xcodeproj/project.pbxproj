@@ -11,6 +11,7 @@
 		0F121D8E11BF2FEE0063D987 /* MEDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F121D8D11BF2FEE0063D987 /* MEDatabase.m */; };
 		0F121D9111BF2FF30063D987 /* MECollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F121D9011BF2FF30063D987 /* MECollection.m */; };
 		0F2E648911E40B3E009EC4DC /* MEArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E648811E40B3E009EC4DC /* MEArray.m */; };
+		0F3D80E311EEB6E600F6D44B /* README.textile in Resources */ = {isa = PBXBuildFile; fileRef = 0F3D80E211EEB6E600F6D44B /* README.textile */; };
 		0F4583D411C7B6E600A5C698 /* MEUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4583D311C7B6E600A5C698 /* MEUtils.m */; };
 		0F4583D811C7B6EF00A5C698 /* MEDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4583D711C7B6EF00A5C698 /* MEDocument.m */; };
 		0F96C89111C9930D00A4C1F0 /* HumanSizedNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F96C89011C9930D00A4C1F0 /* HumanSizedNumber.m */; };
@@ -41,6 +42,7 @@
 		0F121D9011BF2FF30063D987 /* MECollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECollection.m; sourceTree = "<group>"; };
 		0F2E648711E40B3E009EC4DC /* MEArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEArray.h; sourceTree = "<group>"; };
 		0F2E648811E40B3E009EC4DC /* MEArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEArray.m; sourceTree = "<group>"; };
+		0F3D80E211EEB6E600F6D44B /* README.textile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.textile; sourceTree = "<group>"; };
 		0F4583D211C7B6E600A5C698 /* MEUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEUtils.h; sourceTree = "<group>"; };
 		0F4583D311C7B6E600A5C698 /* MEUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEUtils.m; sourceTree = "<group>"; };
 		0F4583D611C7B6EF00A5C698 /* MEDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEDocument.h; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 		29B97314FDCFA39411CA2CEA /* Mongo Explorer */ = {
 			isa = PBXGroup;
 			children = (
+				0F3D80E211EEB6E600F6D44B /* README.textile */,
 				0FC7BB5711BC794200ADE4BE /* Connection */,
 				0FC7BA3411BC2CA000ADE4BE /* Mongo */,
 				080E96DDFE201D6D7F000001 /* Classes */,
@@ -268,6 +271,7 @@
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				0FC7B9B511BC1B2100ADE4BE /* Database.xib in Resources */,
 				0FC7B9B711BC1B2800ADE4BE /* Connection.xib in Resources */,
+				0F3D80E311EEB6E600F6D44B /* README.textile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,6 +6,7 @@ h2. TODO
 
 Nearly everything?!?
 
+* Nice Mac icon;
 * Display documents hierarchically (nested documents);
 * Paginate or efficiently work with many, many documents;
 * Query interface against a DB / collection;
