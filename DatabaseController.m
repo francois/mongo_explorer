@@ -11,6 +11,7 @@
 #import "MEConnection.h"
 #import "MEDatabase.h"
 #import "MECollection.h"
+#import "CJSONDeserializer.h"
 
 @implementation DatabaseController
 
@@ -95,8 +96,18 @@
 }
 
 -(IBAction)resetFilters:(id)sender {
-  NSLog(@"Calling -[NSTableView reloadData] because of filter changes");
-  [self.documentsTable reloadData];
+  NSString *jsonString = [sender stringValue];
+  NSData *jsonData = [jsonString dataUsingEncoding:NSUTF32BigEndianStringEncoding];
+  NSError *error = nil;
+  NSDictionary *dictionary = [[CJSONDeserializer deserializer] deserializeAsDictionary:jsonData error:&error];
+  if (error) {
+    [[NSAlert alertWithError:error] beginSheetModalForWindow:self.window modalDelegate:nil didEndSelector:nil contextInfo:nil];
+  } else {
+    NSLog(@"Parsed JSON: %@", dictionary);
+    
+    NSLog(@"Calling -[NSTableView reloadData] because of filter changes");
+    [self.documentsTable reloadData];
+  }
 }
 
 -(IBAction)changeDisplayedKey:(id)sender {

@@ -477,7 +477,7 @@
 							<reference key="NSSuperview" ref="626899110"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSSearchFieldCell" key="NSCell" id="1034721035">
-								<int key="NSCellFlags">879885888</int>
+								<int key="NSCellFlags">343014976</int>
 								<int key="NSCellFlags2">268436480</int>
 								<string key="NSContents"/>
 								<reference key="NSSupport" ref="584731984"/>
@@ -496,7 +496,7 @@
 								</object>
 								<reference key="NSTextColor" ref="823434290"/>
 								<object class="NSButtonCell" key="NSSearchButtonCell">
-									<int key="NSCellFlags">537001472</int>
+									<int key="NSCellFlags">130560</int>
 									<int key="NSCellFlags2">0</int>
 									<string key="NSContents">search</string>
 									<reference key="NSControlView" ref="714758453"/>
@@ -509,7 +509,7 @@
 									<int key="NSPeriodicInterval">75</int>
 								</object>
 								<object class="NSButtonCell" key="NSCancelButtonCell">
-									<int key="NSCellFlags">537001472</int>
+									<int key="NSCellFlags">130560</int>
 									<int key="NSCellFlags2">0</int>
 									<string key="NSContents">clear</string>
 									<array class="NSMutableArray" key="NSAccessibilityOverriddenAttributes">
@@ -840,7 +840,7 @@
 				<string key="NSInitialKey">key</string>
 				<string key="NSInitialValue">value</string>
 			</object>
-			<object class="NSArrayController" id="124009881">
+			<object class="NSArrayController" id="262433464">
 				<array class="NSMutableArray" key="NSDeclaredKeys">
 					<object class="NSMutableString">
 						<characters key="NS.bytes">documentKeys</characters>
@@ -1290,10 +1290,10 @@
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
 						<string key="label">contentArray: selection.documentKeys</string>
-						<reference key="source" ref="124009881"/>
+						<reference key="source" ref="262433464"/>
 						<reference key="destination" ref="791971240"/>
 						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="124009881"/>
+							<reference key="NSSource" ref="262433464"/>
 							<reference key="NSDestination" ref="791971240"/>
 							<string key="NSLabel">contentArray: selection.documentKeys</string>
 							<string key="NSBinding">contentArray</string>
@@ -1307,10 +1307,10 @@
 					<object class="IBBindingConnection" key="connection">
 						<string key="label">contentValues: arrangedObjects</string>
 						<reference key="source" ref="916019709"/>
-						<reference key="destination" ref="124009881"/>
+						<reference key="destination" ref="262433464"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="916019709"/>
-							<reference key="NSDestination" ref="124009881"/>
+							<reference key="NSDestination" ref="262433464"/>
 							<string key="NSLabel">contentValues: arrangedObjects</string>
 							<string key="NSBinding">contentValues</string>
 							<string key="NSKeyPath">arrangedObjects</string>
@@ -1323,7 +1323,7 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">documentKeysArrayController</string>
 						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="124009881"/>
+						<reference key="destination" ref="262433464"/>
 					</object>
 					<int key="connectionID">301</int>
 				</object>
@@ -1712,7 +1712,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">296</int>
-						<reference key="object" ref="124009881"/>
+						<reference key="object" ref="262433464"/>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">DocumentKeysController</string>
 					</object>
