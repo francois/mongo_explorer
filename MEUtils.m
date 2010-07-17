@@ -26,7 +26,7 @@
     case bson_long:   return [[NSNumber numberWithLong:bson_iterator_long(it)] autorelease];
     case bson_double: return [[NSNumber numberWithDouble:bson_iterator_double(it)] autorelease];
     case bson_string: return [[NSString stringWithCString:bson_iterator_string(it) encoding:NSUTF8StringEncoding] autorelease];
-    case bson_null:   return @"<null>";
+    case bson_null:   return [NSNull null];
 
     case bson_oid: {
       char* buffer = (char*)malloc(24 * 2 + 1); // 24 hex chars + 1 NUL
@@ -58,7 +58,7 @@
       
     default:
       NSLog(@"MEUtils does not handle type %d", bson_iterator_type(it));
-      return @"<null>";
+      return [NSNull null];
   }
 }
      
