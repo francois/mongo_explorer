@@ -106,10 +106,10 @@
 
   /* Bind to the new keyPath */
   NSString *newKeyPath = [@"arrangedObjects.data." stringByAppendingString:newValue];
-  [[column dataCell] bind:@"value"
-                 toObject:documentsArrayController
-              withKeyPath:newKeyPath
-                  options:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSRaisesForNotApplicableKeysBindingOption, [NSNumber numberWithBool:YES], NSCreatesSortDescriptorBindingOption, nil]];
+  [column bind:@"value"
+      toObject:documentsArrayController
+   withKeyPath:newKeyPath
+       options:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSRaisesForNotApplicableKeysBindingOption, [NSNumber numberWithBool:YES], NSCreatesSortDescriptorBindingOption, nil]];
   [documentsTable reloadData];
 }
 
