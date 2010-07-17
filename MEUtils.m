@@ -54,7 +54,7 @@
 
     case bson_date:
     case bson_timestamp:
-      return [NSDate dateWithTimeIntervalSince1970:bson_iterator_date(it)];
+      return [NSDate dateWithTimeIntervalSince1970:bson_iterator_date(it) / 1000L];
       
     default:
       NSLog(@"MEUtils does not handle type %d", bson_iterator_type(it));
