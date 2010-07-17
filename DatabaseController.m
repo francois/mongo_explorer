@@ -14,7 +14,7 @@
 
 @implementation DatabaseController
 
-@synthesize connectionInfo, drawer, databases, databasesArrayController, collectionsArrayController, documentsArrayController, database, currentCollection, documentsTable, currentQuery;
+@synthesize connectionInfo, drawer, databases, databasesArrayController, collectionsArrayController, documentsArrayController, database, currentCollection, documentsTable, currentQuery, documentKeysArrayController;
 
 -(id)initWithConnectionOptions:(NSDictionary *)connectionOptions {
   if (![super initWithWindowNibName:@"Database"]) return nil;
@@ -41,37 +41,39 @@
   [super dealloc];
 }
 
--(void)updateWindowTitle {
+-(NSString *)connectionString {
   if (connection && [connection connected]) {
-    self.window.title = [NSString stringWithFormat:@"%@ (connected)", [connection connectionString]];
+    return [NSString stringWithFormat:@"%@ (connected)", [connection connectionString]];
   } else {
-    self.window.title = [NSString stringWithFormat:@"%@:%@ (disconnected)", [self.connectionInfo objectForKey:MEHost], [self.connectionInfo objectForKey:MEPort]];
+    return [NSString stringWithFormat:@"%@:%@ (disconnected)", [self.connectionInfo objectForKey:MEHost], [self.connectionInfo objectForKey:MEPort]];
   }
 }
 
 -(void)windowDidLoad {
-  [self updateWindowTitle];
   [self.window makeKeyWindow];
   [self.drawer openOnEdge:NSMinXEdge];
 
   self.databasesArrayController.sortDescriptors = [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES]];
+  self.documentKeysArrayController.sortDescriptors = [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"self" ascending:YES]];
   self.collectionsArrayController.sortDescriptors = [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES]];
   [self.collectionsArrayController addObserver:self forKeyPath:@"selection" options:NSKeyValueObservingOptionNew context:nil];
 
+  [self willChangeValueForKey:@"connectionString"];
   connection = [[MEConnection alloc] initWithConnectionInfo:self.connectionInfo];
   int result = [connection connect];
   if (0 == result) {
-    [self updateWindowTitle];
     self.databases = [[connection databases] allObjects];
-    return;
+  } else {
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert setMessageText: @"Connection Failure"];
+    [alert setInformativeText: [NSString stringWithFormat:@"Failed to connect to %@ - mongo_connect() returned: %d",
+                                connection.connectionString, result]];
+    [alert beginSheetModalForWindow:self.window modalDelegate:nil didEndSelector:nil contextInfo:nil];
+    [alert release];
   }
-
-  NSAlert *alert = [[NSAlert alloc] init];
-  [alert setMessageText: @"Connection Failure"];
-  [alert setInformativeText: [NSString stringWithFormat:@"Failed to connect to %@ - mongo_connect() returned: %d",
-                              connection.connectionString, result]];
-  [alert beginSheetModalForWindow:self.window modalDelegate:nil didEndSelector:nil contextInfo:nil];
-  [alert release];
+  
+  [self didChangeValueForKey:@"connectionString"];
+  return;
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {

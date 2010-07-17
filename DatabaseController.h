@@ -19,6 +19,7 @@
 @property(nonatomic, retain) IBOutlet NSArrayController *databasesArrayController;
 @property(nonatomic, retain) IBOutlet NSArrayController *collectionsArrayController;
 @property(nonatomic, retain) IBOutlet NSArrayController *documentsArrayController;
+@property(nonatomic, retain) IBOutlet NSArrayController *documentKeysArrayController;
 @property(nonatomic, retain) IBOutlet NSTableView *documentsTable;
 
 @property(nonatomic, copy) NSDictionary *connectionInfo;
@@ -26,6 +27,7 @@
 @property(nonatomic, retain) MEDatabase *database;
 @property(nonatomic, retain) MECollection *currentCollection;
 @property(nonatomic, copy) NSString *currentQuery;
+@property(nonatomic, readonly) NSString *connectionString;
 
 -(id)initWithConnectionOptions:(NSDictionary *)connectionOptions;
 
