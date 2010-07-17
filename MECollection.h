@@ -23,8 +23,15 @@
 @property(nonatomic, readonly) NSString *description;
 @property(nonatomic, readonly) NSString *namespace;
 @property(nonatomic, retain) MEArray *array;
+@property(nonatomic, retain) NSArray *documentKeys;
 
 -(id)initWithDatabase:(MEDatabase *)database info:(NSDictionary *)info connection:(MEConnection *)connection;
+
+/**
+ * Returns an NSArray (autoreleased) that contains the keys of the first few documents.
+ * Useful to provide builders for queries and such.
+ */
+-(NSArray *)buildDocumentKeys;
 
 /**
  * Returns an MECursor that will return all documents when iterated over.

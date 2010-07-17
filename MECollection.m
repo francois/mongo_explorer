@@ -17,7 +17,7 @@
 
 @implementation MECollection
 
-@synthesize connection, database, fullName, name, array;
+@synthesize connection, database, fullName, name, array, documentKeys;
 
 -(id)initWithDatabase:(MEDatabase *)aDatabase info:(NSDictionary *)info connection:(MEConnection *)aConnection {
   if (![super init]) return nil;
@@ -27,6 +27,7 @@
   self.fullName = [info objectForKey:@"name"];
   self.name = [[info objectForKey:@"name"] stringByReplacingOccurrencesOfString:[self.database.name stringByAppendingString:@"."] withString:@""];
   self.array = [[MEArray alloc] initWithCollection:self];
+  self.documentKeys = [self buildDocumentKeys];
 
   return self;
 }
@@ -36,6 +37,7 @@
   self.database = nil;
   self.name = nil;
   self.array = nil;
+  self.documentKeys = nil;
 
   [super dealloc];
 }
@@ -79,6 +81,21 @@
 
 -(NSString *)namespace {
   return [NSString stringWithFormat:@"%@.%@", self.database.name, self.name];
+}
+
+-(NSArray *)buildDocumentKeys {
+  MECursor *cursor = [self find];
+  cursor.returnCount = 1;
+  NSArray *resultSet = [cursor documents];
+  if ([resultSet count] > 0) {
+    MEDocument *doc = [resultSet objectAtIndex:0];
+    
+    NSDictionary *flat = [doc flatView];
+    [cursor release];
+    return [flat allKeys];
+  } else {
+    return [NSArray array];
+  }
 }
 
 @end

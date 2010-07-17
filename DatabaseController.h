@@ -30,5 +30,6 @@
 -(id)initWithConnectionOptions:(NSDictionary *)connectionOptions;
 
 -(IBAction)resetFilters:(id)sender;
+-(IBAction)changeDisplayedKey:(id)sender;
 
 @end

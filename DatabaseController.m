@@ -97,4 +97,20 @@
   [self.documentsTable reloadData];
 }
 
+-(IBAction)changeDisplayedKey:(id)sender {
+  NSString *newValue = [[sender selectedItem] title];
+  NSTableColumn *column = [documentsTable tableColumnWithIdentifier:@"OID"];
+
+  /* Replace title */
+  [[column headerCell] setStringValue:newValue];
+
+  /* Bind to the new keyPath */
+  NSString *newKeyPath = [@"arrangedObjects.data." stringByAppendingString:newValue];
+  [[column dataCell] bind:@"value"
+                 toObject:documentsArrayController
+              withKeyPath:newKeyPath
+                  options:[NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSRaisesForNotApplicableKeysBindingOption, [NSNumber numberWithBool:YES], NSCreatesSortDescriptorBindingOption, nil]];
+  [documentsTable reloadData];
+}
+
 @end
