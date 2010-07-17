@@ -27,6 +27,10 @@ h2. How to contribute?
 * Make your changes
 * Send a pull request
 
+h2. Changelog
+
+* v1.0.2 (2010-07-16) - Fixed francois/mongo_explorer#1 (Dates don't display properly)
+
 h2. LICENSE
 
 <pre>Copyright (c) 2010 François Beausoleil <francois@teksol.info>
