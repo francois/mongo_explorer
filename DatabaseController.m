@@ -50,16 +50,9 @@
   }
 }
 
--(void)windowDidLoad {
-  [self.window makeKeyWindow];
-  [self.drawer openOnEdge:NSMinXEdge];
-
-  self.databasesArrayController.sortDescriptors = [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES]];
-  self.documentKeysArrayController.sortDescriptors = [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"self" ascending:YES]];
-  self.collectionsArrayController.sortDescriptors = [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES]];
-  [self.collectionsArrayController addObserver:self forKeyPath:@"selection" options:NSKeyValueObservingOptionNew context:nil];
-
+-(void)connect {
   [self willChangeValueForKey:@"connectionString"];
+
   connection = [[MEConnection alloc] initWithConnectionInfo:self.connectionInfo];
   int result = [connection connect];
   if (0 == result) {
@@ -72,8 +65,21 @@
     [alert beginSheetModalForWindow:self.window modalDelegate:nil didEndSelector:nil contextInfo:nil];
     [alert release];
   }
-  
+
   [self didChangeValueForKey:@"connectionString"];
+}
+
+-(void)windowDidLoad {
+  [self.window makeKeyWindow];
+  [self.drawer openOnEdge:NSMinXEdge];
+
+  self.databasesArrayController.sortDescriptors = [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES]];
+  self.documentKeysArrayController.sortDescriptors = [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"self" ascending:YES]];
+  self.collectionsArrayController.sortDescriptors = [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES]];
+  [self.collectionsArrayController addObserver:self forKeyPath:@"selection" options:NSKeyValueObservingOptionNew context:nil];
+
+  [self connect];
+
   return;
 }
 
