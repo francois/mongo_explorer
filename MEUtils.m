@@ -80,4 +80,37 @@
   return [MEUtils dictionaryFromBsonIterator:&it];
 }
 
++(void)fillBsonObject:(bson_buffer *)buffer fromDictionary:(NSDictionary *)dictionary {
+  NSLog(@"Processing +[MEUtils fillBsonObject:fromDictionary:%@]", dictionary);
+  for(NSString *key in dictionary) {
+    id obj = [dictionary objectForKey:key];
+    NSLog(@"Key: %@, Object: %@", key, obj);
+    const char *cKey = [key cStringUsingEncoding:NSUTF8StringEncoding];
+
+    if ([obj isKindOfClass:[NSNumber class]]) {
+      /* Have to be more precise - what kind of Number? */
+      bson_append_double(buffer, cKey, [obj doubleValue]);
+    } else if ([obj isKindOfClass:[NSString class]]) {
+      /* Maybe it's an OID? */
+      bson_append_string(buffer, cKey, [obj cStringUsingEncoding:NSUTF8StringEncoding]);
+    } else if ([obj isKindOfClass:[NSDate class]]) {
+      bson_append_time_t(buffer, cKey, [obj timeIntervalSince1970]); /* Strange but true: time_t expects seconds, while data is returned in milliseconds */
+    } else if ([obj isKindOfClass:[NSNull class]]) {
+      bson_append_null(buffer, cKey);
+    } else if ([obj isKindOfClass:[NSArray class]]) {
+      bson_append_start_array(buffer, cKey);
+      for(id entity in obj) {
+        NSAssert(NO, "Arrays aren't handled just yet...");
+      }
+      bson_append_finish_object(buffer);
+    } else if ([obj isKindOfClass:[NSDictionary class]]) {
+      bson_append_start_object(buffer, cKey);
+      [MEUtils fillBsonObject:buffer fromDictionary:obj];
+      bson_append_finish_object(buffer);
+    } else {
+      NSAssert1(NO, "Unexpected class: %@ is not handled", [obj class]);
+    }
+  }
+}
+
 @end
