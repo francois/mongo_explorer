@@ -25,7 +25,6 @@
 @property(nonatomic, copy) NSDictionary *connectionInfo;
 @property(nonatomic, copy) NSArray *databases;
 @property(nonatomic, retain) MEDatabase *database;
-@property(nonatomic, retain) MECollection *currentCollection;
 @property(nonatomic, copy) NSString *currentQuery;
 @property(nonatomic, readonly) NSString *connectionString;
 

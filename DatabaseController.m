@@ -15,7 +15,7 @@
 
 @implementation DatabaseController
 
-@synthesize connectionInfo, drawer, databases, databasesArrayController, collectionsArrayController, documentsArrayController, database, currentCollection, documentsTable, currentQuery, documentKeysArrayController;
+@synthesize connectionInfo, drawer, databases, databasesArrayController, collectionsArrayController, documentsArrayController, database, documentsTable, currentQuery, documentKeysArrayController;
 
 -(id)initWithConnectionOptions:(NSDictionary *)connectionOptions {
   if (![super initWithWindowNibName:@"Database"]) return nil;
@@ -31,7 +31,6 @@
   self.databasesArrayController = nil;
   self.databases = nil;
   self.database = nil;
-  self.currentCollection = nil;
   self.documentsTable = nil;
   self.drawer = nil;
 
@@ -86,14 +85,7 @@
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
 //  NSLog(@"observeValueForKeyPath:%@ ofObject:%@ change:%@ context:%@", keyPath, object, change, context);
   if ([keyPath isEqual:@"selection"] && object == self.collectionsArrayController) {
-    if (NSNotFound == [self.collectionsArrayController selectionIndex]) {
-      self.currentCollection = nil;
-    } else {
-      MEDatabase *db = [self.databases objectAtIndex:[self.databasesArrayController selectionIndex]];
-      self.currentCollection = [db.collections objectAtIndex:[self.collectionsArrayController selectionIndex]];
-    }
-
-    NSLog(@"Calling -[NSTableView reloadData], currentCollection: %@", self.currentCollection);
+    NSLog(@"Calling -[NSTableView reloadData]");
     [self.documentsTable reloadData];
   }
 
