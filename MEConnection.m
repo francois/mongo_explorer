@@ -198,16 +198,25 @@ NSString * const MEPassword = @"Password";
                         returnCount:(int)returnCount {
   if ([self connect]) return NULL;
 
+  bson_buffer terms;
+  bson_buffer_init(&terms);
+  [MEUtils fillBsonObject:&terms fromDictionary:aQuery];
+
   bson query;
   bson_empty(&query);
+  bson_from_buffer(&query, &terms);
 
   bson fields;
   bson_empty(&fields);
 
   mongo_cursor *cursor;
   cursor = mongo_find(connection, [namespace cStringUsingEncoding:NSUTF8StringEncoding], &query, &fields, returnCount, skipCount, 0);
-  if (!cursor) return NULL;
+
+  bson_destroy(&fields);
+  bson_destroy(&query);
+//  bson_buffer_destroy(&terms);
   
+  if (!cursor) return NULL;
   return cursor;
 }
 
