@@ -1,4 +1,3 @@
 build
-*.pch
 *.xcodeproj/*.mode1v3
 *.xcodeproj/*.pbxuser
