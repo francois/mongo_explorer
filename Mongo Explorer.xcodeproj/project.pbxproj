@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F121D5311BF2C710063D987 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F121D5211BF2C710063D987 /* BWToolkitFramework.framework */; };
 		0F121D8E11BF2FEE0063D987 /* MEDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F121D8D11BF2FEE0063D987 /* MEDatabase.m */; };
 		0F121D9111BF2FF30063D987 /* MECollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F121D9011BF2FF30063D987 /* MECollection.m */; };
 		0F20EBFB11F1EB9D004DCB9F /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F20EBE811F1EB9D004DCB9F /* CDataScanner.m */; };
@@ -23,7 +22,6 @@
 		0F3D80E311EEB6E600F6D44B /* README.textile in Resources */ = {isa = PBXBuildFile; fileRef = 0F3D80E211EEB6E600F6D44B /* README.textile */; };
 		0F4583D411C7B6E600A5C698 /* MEUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4583D311C7B6E600A5C698 /* MEUtils.m */; };
 		0F4583D811C7B6EF00A5C698 /* MEDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4583D711C7B6EF00A5C698 /* MEDocument.m */; };
-		0F95BBA111EF43C700020A06 /* BWToolkitFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0F121D5211BF2C710063D987 /* BWToolkitFramework.framework */; };
 		0F96C89111C9930D00A4C1F0 /* HumanSizedNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F96C89011C9930D00A4C1F0 /* HumanSizedNumber.m */; };
 		0F96C89E11C9954B00A4C1F0 /* HumanSizedSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F96C89D11C9954B00A4C1F0 /* HumanSizedSize.m */; };
 		0FBBB07411CD37D9001E48F2 /* MECursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBBB07311CD37D9001E48F2 /* MECursor.m */; };
@@ -36,6 +34,8 @@
 		0FC7BA4011BC2CA000ADE4BE /* mongo.c in Sources */ = {isa = PBXBuildFile; fileRef = 0FC7BA3911BC2CA000ADE4BE /* mongo.c */; };
 		0FC7BA4111BC2CA000ADE4BE /* numbers.c in Sources */ = {isa = PBXBuildFile; fileRef = 0FC7BA3C11BC2CA000ADE4BE /* numbers.c */; };
 		0FC7BB5A11BC795A00ADE4BE /* MEConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC7BB5911BC795A00ADE4BE /* MEConnection.m */; };
+		0FD4A66211FA153200C9D4F4 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD4A66111FA153200C9D4F4 /* BWToolkitFramework.framework */; };
+		0FD4A69911FA157800C9D4F4 /* BWToolkitFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0FD4A66111FA153200C9D4F4 /* BWToolkitFramework.framework */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* Mongo_ExplorerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* Mongo_ExplorerAppDelegate.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -50,7 +50,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0F95BBA111EF43C700020A06 /* BWToolkitFramework.framework in CopyFiles */,
+				0FD4A69911FA157800C9D4F4 /* BWToolkitFramework.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,7 +58,6 @@
 
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		0F121D5211BF2C710063D987 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = /Users/francois/Library/Frameworks/BWToolkitFramework.framework; sourceTree = "<absolute>"; };
 		0F121D8C11BF2FEE0063D987 /* MEDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEDatabase.h; sourceTree = "<group>"; };
 		0F121D8D11BF2FEE0063D987 /* MEDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEDatabase.m; sourceTree = "<group>"; };
 		0F121D8F11BF2FF30063D987 /* MECollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECollection.h; sourceTree = "<group>"; };
@@ -112,6 +111,7 @@
 		0FC7BA3D11BC2CA000ADE4BE /* platform_hacks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = platform_hacks.h; sourceTree = "<group>"; };
 		0FC7BB5811BC795A00ADE4BE /* MEConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEConnection.h; sourceTree = "<group>"; };
 		0FC7BB5911BC795A00ADE4BE /* MEConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEConnection.m; sourceTree = "<group>"; };
+		0FD4A66111FA153200C9D4F4 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BWToolkitFramework.framework; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
-				0F121D5311BF2C710063D987 /* BWToolkitFramework.framework in Frameworks */,
+				0FD4A66211FA153200C9D4F4 /* BWToolkitFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,8 +237,8 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0FD4A66111FA153200C9D4F4 /* BWToolkitFramework.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
-				0F121D5211BF2C710063D987 /* BWToolkitFramework.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -441,6 +441,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Library/Frameworks\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -462,6 +463,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Library/Frameworks\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
